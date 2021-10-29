@@ -1,0 +1,2 @@
+-- ALTER TABLE news_attachments
+-- DROP COLUMN is_active;

@@ -1,0 +1,70 @@
+.fixedRightSideButtonDiv {
+    transform-origin: right top 0;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    position: fixed;
+    top: 0;
+    right: 3rem;
+    z-index: 3; 
+    border-radius: 50%;
+    cursor: pointer;
+    animation: fadeIn 0.3s;
+    transition: opacity 0.4s;
+    opacity: 0.5;
+    height: 3rem;
+    width: 100vh;
+    text-align: end;
+}
+.fixedRightSideButton {
+    background-color: var(--theme-darkcolor) !important;
+    height: 100%;
+    text-transform: none !important;
+}
+.fixedRightSideButton .MuiButton-label{color: #fff;}
+.to-top-blue {
+    background-color: #304f80;
+}
+
+.to-top-green {
+    background-color: #246d3f;
+}
+
+.scroll-to-top:hover {
+    opacity: 1;
+}
+
+.to-top-icon {
+    margin-top: 5px;
+    color: white;
+}
+
+body.lowvision .fixedRightSideButtonDiv{
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@media print {
+    .fixedRightSideButtonDiv {
+        visibility: hidden;
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "appotek-migrations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "compile": "tsc",
+    "sql": "node dist/scripts/migrate",
+    "seed": "node_modules/.bin/sequelize db:seed:all",
+    "init": "node dist/scripts/init && npm run seed",
+    "migrate": "npm run sql && npm run seed",
+    "undo": "node dist/scripts/undo",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^12.6.9",
+    "crypto-js": "^4.0.0",
+    "dotenv": "^8.0.0",
+    "node-fetch": "^2.6.0",
+    "path": "^0.12.7",
+    "pg": "^7.12.0",
+    "postgrator": "^3.10.2",
+    "sequelize": "^5.12.3",
+    "sequelize-cli": "^5.5.0",
+    "typescript": "^3.3.3"
+  }
+}

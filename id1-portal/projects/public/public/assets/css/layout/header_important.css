@@ -1,0 +1,196 @@
+.close:not(:disabled):not(.disabled) {
+    color: #FFF;
+}
+
+.s90 {
+    display: block;
+    font-size: 90% !important
+}
+body {
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+    font-family: "ProbaPro", "OpenSans";
+    background-color: #dee4e7;
+}
+
+#customTestDiv>*{
+    margin-top: auto;
+    size: 80%;
+}
+
+body.lowvision #footer-lowvision-translate{
+    margin-top: 40px;
+}
+
+#customTestDiv{
+    display: inline-flex;
+    height: 100%;
+    margin-top: auto;
+}
+
+/* #menu-desktop{
+    display: table-header-group;
+} */
+
+#cutom-header-socials {
+    align-self: flex-start;
+    display: flex;
+    min-height: 50px;
+    cursor: pointer;
+    align-items: center;
+    margin-left: auto;
+}
+:root{    height: 100%;}
+#root{
+    margin-right: calc(-1 * (100vw - 100%));
+    height: 100%;
+}
+#menu{
+    width: 100% !important;
+    max-width: 100vw;
+}
+
+#cutom-header-socials a{
+    color:white !important;
+    opacity: 0.5;
+    padding-right: 10px;
+
+}
+#cutom-header-socials a:hover{
+    opacity: 1;
+}
+
+.wrapper {
+    background-color: #FFF;
+}
+
+.se-component.se-image-container *{
+height: auto;
+width: auto;
+}
+
+#layout-header{
+    z-index: 5;
+    height: auto;
+}
+
+header {
+    position: relative;
+}
+/* .wrapper {
+    padding: 0 !important;
+} */
+@media (max-width:991px) {
+    #newslist-content{
+        flex-direction: column-reverse;
+    }
+
+    .menu-bg-color{
+        background: var(--theme-darkcolor);
+    }
+}
+
+/* @media (max-height:100vh) {
+    footer{
+        bottom: 0vh;
+    }
+} */
+
+.header-bg-color {
+    background: radial-gradient(435.92px at 50% 50%,var(--theme-lightcolor) 0%,var(--theme-color) 100%) !important;
+}
+
+
+.header-bg-color .menu ul li.active{
+    background-color: var(--theme-darkcolor) !important;
+}
+
+.header-bg-color .menu ul li:hover{
+    background-color:var(--theme-darkcolor) !important;
+}
+
+
+.header-bg-color .menu ul li .submenu{
+    background-color: var(--theme-darkcolor) !important;
+}
+
+
+.header-bg-color .search_form {
+    background-color: var(--theme-darkcolor) !important;
+}
+
+.text-color{
+    color: var(--theme-color);
+  }
+
+.header-bg .menu ul li .submenu{
+    width: 100vw !important;
+}
+
+header.wrapper .header-bg .menu ul li .submenu{
+    /* max-width: 1300px; */
+    max-width: var(--content-max-width);
+}
+
+.header_logo{
+    height: 66px;    
+}
+
+
+.header-bg .menu ul li a{
+    /* padding: 15px 20px; */
+    padding: 15px 15px;
+    font-size: 100% !important;
+    /* font-family: "ProbaProBold", "SourceSansProBold" !important; */
+    /* font-family: "ProbaPro-SemiBold" !important; */
+    letter-spacing: 0 !important;
+}
+@media(min-width:992px){
+
+.header-bg .menu ul#menu-desktop>li>a, .header-bg .menu ul#menu-desktop>li>div>a{
+white-space: nowrap;
+}
+}
+
+body{
+    font-family: "ProbaProRegular", "SourceSansPro";
+    font-size: 18px;
+}
+
+.post-title.title-small{
+    font-size: 100%;
+}
+
+.actions li span {
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -ms-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    font-size: 100%;
+    cursor: pointer;    
+    font-size: 14px;
+    line-height: 20px
+}
+
+@font-face{font-family:"ProbaProBold";src:url("../../fonts/ProbaPro/ProbaPro-Bold.woff") format("truetype");}
+@font-face{font-family:"SourceSansProBold";src:url("../../fonts/SourceSansPro/SourceSansPro-Bold.otf") format("truetype");}
+@font-face{font-family:"ProbaProRegular";src:url("../../fonts/ProbaPro/ProbaPro-Regular.woff") format("truetype");}
+@font-face{font-family:"SourceSansPro";src:url("../../fonts/SourceSansPro/SourceSansPro-Regular.otf") format("truetype");}
+@font-face{font-family:"ProbaPro-SemiBold";src:url("../../fonts/ProbaPro/ProbaPro-Medium.woff") format("truetype");}
+
+@media print{
+    .header-bg{
+        background: none !important;
+    }
+    .header_headline.center {
+        padding-left: 0px !important;
+    }
+    .header_logo {
+        margin-left: auto !important;
+    }
+    .header_headline{
+        color: black !important;
+    }
+ }

@@ -1,0 +1,31 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.error{
+    padding-top: 20vh;
+}
+
+#error-main{
+    flex-grow: 1;
+text-align: center;
+}
+
+.error-description{
+    font-size: 500%;
+
+}
+.error-proposition{
+    font-size:200%;
+
+}
+
+.error-color *, .error-color a:hover {
+    color: var(--theme-color);
+}
+
+.error a {
+    text-decoration: underline !important;
+}

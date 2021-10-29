@@ -1,0 +1,61 @@
+.search-component .detail_link_img {
+    width: 24px;
+    height: 24px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAL0SURBVHgBnVU/T1NRFD/33PdAiCHVumjBQBNrDEPrqBuSGIcWqIOr/QAExE/AxKZFQuLgIKwO0thG4yC6OdIOJtIQIIBxAdNEA8H23es59/FMoX/eK2do773v3PP73fNXQBu5mpztvQB9o4AYEyDCGiDM5xrEoQC1p7Rcq1mi9GNl8qCVDdHsMJJeDHc5tQx9jkEA0Vp9rVp2vhlQA8D15ItRRJEUoHuZKV0vAqpSVdi7noHIw1f9tvpzBRTGycBd1xDpKl3YLEx/agkwlHyeApRJwwpE8Vj9Wv5ZmD2ENsKvtR0n6QGBcgpbhaf5BgBmLhEemUOEN5u500z8JJpeTGrHSZn7iu6fvAQ9FuwW81HKfKfGWTZXJgsOETMbssU2/wPYtWrK+JyCxYpwTtkhYuxaTbbcJCEARhIC7/CGM6HV5ejYQnZwIpvwA+G4uckhYpzmaNV0nD8w+1b5PJjKZkDoJ6jxsx+ImxSUeSQ9InSPXO/c5o2w5FqrS9v5mSWtYZmWoSAgUFMlQ1rATdSA/byRAg7a3dl6N50JClLttncNaap+5ODyZuPt1B74SBOQUDM9z9XcWhA6FCGErtuG/PTpBa5rIum5sJ9ydHzhNfHK0LKihBrZzs1sN9O7Nv5swJChbKIYaAPQBRf7OzRebKXbVcUTsnoX6cHrZllzs6mp8bHsbFDjRiS4CaCghEe6ssprFDLOhdFMXyHM00u/BDFeX7jHtixaXBhDY/NlilysBy8/pvOXZy+R0Qr9jUAA4bbD3dIt3OkDk0V/pbXE5U0sE1HqqnBO4XbP7NmW13Yk//z+/v6o79aDGkV8mEI/fOnGfVEpfyx3YtwdVJjmNSKs7OSmvvH61MCp7+ntxmC9cNy6ybVUsCawpt3XdeTGkTlBTJQ7Mj0gcKpFS1/Y3/jgVntkdC5sd1sDIO0EWYx74xWRRmauzcj0pGEM+gjprR9LuRxo6J8FskDHpaMSCsSA9yoUYl9rKlApy0fV/dV2c/sfEpBu6HC9MpwAAAAASUVORK5CYII=);
+}
+
+.search-component .list-group-item {
+    min-height: 56px;
+}
+
+.search-component a.link-tatistics {
+    text-align: left;
+    white-space: normal;
+}
+
+.search-component .btn-search-on-main-form{
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.search-component .post-title .title-large{
+  font-size: 18px;
+}
+
+.search-component .counter{
+  padding-top: 8px;
+  padding-left: 8px;
+  color: #a9b7d5;
+  margin-top: 5px;;
+  min-width: 37px;
+  white-space: normal;
+  font-family: "ProbaProBold", "SourceSansProBold" !important;
+}
+.search-component .counter p{
+  white-space: nowrap !important;
+}
+
+.search-component .date {
+  font-size: 15px;
+}
+
+.search-component .page-contents{
+  padding: 0px;
+}
+
+.search-component mark{
+  padding: 0px;
+}
+
+@media(max-width:575px){
+  .search-results-info{
+    display: flex;
+    flex-flow: column wrap;
+  }
+  .search-results{order: 1;}
+  .search-statistics{order: 0; padding-bottom: 15px;}
+}
+.resultItemDate,.resultItemTitle{margin-bottom: unset !important;}
+.resultItemTitle{margin-top: unset !important;}
+.resultItem{margin-bottom: 20px;}
+.resultItemContent{padding: 0rem 0.5rem 0.5rem 0.5rem !important;}

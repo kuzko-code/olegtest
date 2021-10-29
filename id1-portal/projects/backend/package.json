@@ -1,0 +1,76 @@
+{
+  "name": "ogp-back",
+  "version": "1.0.0",
+  "description": "OGP API (zeit/micro + ts + swagger)",
+  "main": "dist/server.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "precompile": "npm run clean",
+    "compile": "tsc && node dist/locales.js",
+    "dev:compile": "tsc -w",
+    "start": "node dist/main.js",
+    "start:dev": "npm run compile && node dist/main.js",
+    "start:watch": "nodemon"
+  },
+  "author": {
+    "name": "Softlist",
+    "developer": "Roman Shkolnyi",
+    "url": "https://softlist.ua/"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "npm run compile && node dist/main.js",
+    "ext": "ts"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@types/busboy": "^0.2.3",
+    "@types/jsonwebtoken": "^8.3.4",
+    "@types/micro": "^7.3.3",
+    "@types/micro-cors": "^0.1.0",
+    "@types/node": "^11.13.0",
+    "@types/nodemailer": "^6.2.2",
+    "@types/pg": "^7.4.13",
+    "@types/pg-format": "^1.0.0",
+    "@types/pg-query-stream": "^1.0.2",
+    "@types/uuid": "^3.4.6",
+    "ajv": "^6.10.2",
+    "busboy": "^0.3.1",
+    "dotenv": "^8.1.0",
+    "fastest-validator": "0.6.17",
+    "formidable": "^1.2.2",
+    "fs-extra": "^9.0.1",
+    "fs-router": "^0.4.2",
+    "i18n": "^0.13.2",
+    "jimp": "^0.16.1",
+    "jsonstream": "^1.0.3",
+    "jsonwebtoken": "^8.5.1",
+    "micro": "^9.3.3",
+    "micro-cors": "^0.1.1",
+    "node-fetch": "^2.6.1",
+    "node-schedule-tz": "^1.2.1-4",
+    "nodejs-fs-utils": "^1.2.5",
+    "nodemailer": "^6.3.1",
+    "pg": "^7.8.0",
+    "pg-format": "^1.0.4",
+    "pg-query-stream": "^2.0.0",
+    "randomatic": "^3.1.1",
+    "request": "^2.88.2",
+    "rimraf": "^3.0.2",
+    "telegraf": "^3.38.0",
+    "typescript": "^3.3.3",
+    "unzipper": "^0.10.11",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "prettier": "2.3.2"
+  }
+}

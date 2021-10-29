@@ -1,0 +1,3 @@
+[1011/073138.561:ERROR:settings.cc(430)] Settings version is not 5
+[1011/130116.260:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Roman\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\60d19084-f3a9-4a86-9f66-50e05028cd7e: Системе не удается найти указанный путь. (0x3)
+[1011/130116.265:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)

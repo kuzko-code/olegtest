@@ -1,0 +1,33 @@
+.inline {
+  flex-wrap: nowrap;
+}
+
+.attachment-button i {
+  width: 20px;
+  height: 20px;
+}
+
+.attachment-button {
+  padding: 4px 6px 4px 6px !important;
+}
+
+a {
+  color: unset;
+}
+
+.disabledElement {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@media (min-width: 1200px) and (max-width: 1699px) {
+  .MuiTable-root
+    .MuiToolbar-root.MuiToolbar-regular.MuiTablePagination-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .MuiTable-root
+    .MuiTableCell-root.MuiTableCell-footer.MuiTablePagination-root {
+    width: inherit;
+  }
+}

@@ -1,0 +1,105 @@
+/* [class^='MTableToolbar-actions']{
+    position: absolute !important;
+    left: 160px !important;
+} */
+
+@media (min-width: 1200px){
+    .NewsList .container {
+        max-width: 1240px;
+    }
+}
+
+
+
+
+
+/* .chooseFileButton{
+    background: #1ab394;
+} */
+
+.MuiTypography-root.MuiTypography-h6{
+    font-size: 1.15rem !important;
+}
+
+.RubricsTags .MuiFormControl-root.MuiTextField-root.MTableToolbar-searchField-37{
+    width: 45%;
+}
+
+.RubricsTags, .NewsList{
+    margin-top: 10px;
+
+}
+
+.RubricsTags .container{
+    margin: 0;
+}
+
+#root__title{
+    font-weight: 600;
+}
+
+#root_socialMedia__title{
+    font-weight: 600;
+}
+
+.left1px{
+    margin-left: 0px !important;
+    margin-right: auto !important;
+}
+
+tr[style="height: 49px;"].MuiTableRow-root{
+    height: 53px !important;
+}
+
+@media (min-width: 1200px){
+    .RubricsTags .container{
+        max-width: 1400px !important;
+    }
+}
+
+
+.PageList .MuiTableCell-root.MuiTableCell-body>div>span:first-child {
+    margin-left: auto;
+}
+
+.Users .userGroups__dropdown-indicator{
+    padding: unset !important;
+}
+
+.Users .userGroups__value-container:not(.userGroups__value-container--has-value){
+height: 28px;
+}
+
+.Users .userGroups__indicator-separator{
+    display: none;
+}
+
+.Users .userGroups__placeholder{
+    margin: 2px;
+    margin-left: 4px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+.Users .userGroups__menu{
+    width: auto;
+}
+
+.Users .userGroups__control{
+    border: none;
+    border-radius: 0;
+    padding-bottom: 1px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    box-shadow: none;
+    min-height: unset;
+}
+
+.Users .userGroups__control:hover{
+    border-bottom: 2px solid rgba(0, 0, 0, 0.87);
+    margin-bottom: -1px;
+}
+
+.Users .groupSelect.ga-e .userGroups__control{
+    border-bottom: 2px solid #f44336;
+    margin-bottom: -1px;
+}

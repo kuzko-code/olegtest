@@ -1,0 +1,31 @@
+/* ======================================================== common ============================================*/
+
+.page-pagination .MuiPagination-root .MuiPagination-ul {
+    justify-content: center;
+}
+
+.page-pagination .MuiPagination-root .MuiPagination-ul .MuiPaginationItem-root {
+    margin: 0 2px;
+}
+
+.page-pagination .MuiPagination-root .MuiPagination-ul .Mui-selected {
+    background-color: var(--theme-color);
+    color: #FFFFFF;
+}
+
+.page-pagination .MuiPagination-root .MuiPagination-ul .Mui-selected:hover {
+    background-color: var(--theme-lightcolor);
+    color: #FFFFFF;
+}
+
+.page-pagination a,
+.page-pagination a:hover {
+    text-decoration: none;
+}
+
+/* ======================================================== lowvision ==========================================*/
+body.lowvision .MuiPagination-root .MuiPagination-ul .Mui-selected {
+    background-color: #FFFFFF;
+    border: black 2px solid;
+    color: #000000;
+}

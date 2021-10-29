@@ -1,0 +1,26 @@
+/*//TODO Видалити після обновлення плагінів! Дублікат src/component/Pagination/Pagination.css */
+/* ======================================================== common ============================================*/
+
+.MuiPagination-root .MuiPagination-ul {
+    justify-content: center;
+}
+
+.MuiPagination-root .MuiPagination-ul .MuiPaginationItem-root {
+    margin: 0 2px;
+}
+.MuiPagination-root .MuiPagination-ul .Mui-selected {
+    background-color: var(--theme-color);
+    color: #FFFFFF;
+}
+.MuiPagination-root .MuiPagination-ul .Mui-selected:hover {
+    background-color: var(--theme-lightcolor);
+    color: #FFFFFF;
+}
+
+/* ======================================================== lowvision ==========================================*/
+body.lowvision .MuiPagination-root .MuiPagination-ul .Mui-selected {
+    background-color: #FFFFFF;
+    border: black 2px solid;
+    color: #000000;
+}
+

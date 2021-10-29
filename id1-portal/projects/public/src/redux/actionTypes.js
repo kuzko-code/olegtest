@@ -1,0 +1,17 @@
+export const CLEAR_ERROR = 'CLEAR_ERROR';
+export const GET_NEWS_BY_RUBRIC_success = 'GET_NEWS_BY_RUBRIC_success';
+export const GET_NEWS_BY_RUBRIC_error = 'GET_NEWS_BY_RUBRIC_error';
+export const GET_NAVMENU_SETTINGS_success = 'GET_NAVMENU_SETTINGS_success';
+export const GET_NAVMENU_SETTINGS_error = 'GET_NAVMENU_SETTINGS_error';
+export const GET_TAGS_success = 'GET_TAGS_success';
+export const GET_TAGS_error = 'GET_TAGS_error';
+export const SET_IS_TAGS_LOADING_TRUE = 'SET_IS_TAGS_LOADING_TRUE';
+export const SET_IS_TAGS_LOADING_FALSE = 'SET_IS_TAGS_LOADING_FALSE';
+export const GET_CURRENT_USER_success = 'GET_CURRENT_USER_success';
+export const GET_CURRENT_USER_error = 'GET_CURRENT_USER_error';
+export const UPDATE_CURRENT_USER_success = 'UPDATE_CURRENT_USER_success';
+export const UPDATE_CURRENT_USER_error = 'UPDATE_CURRENT_USER_error';
+export const USER_SET_IS_LOADING_TRUE = 'USER_SET_IS_LOADING_TRUE';
+export const USER_SET_IS_LOADING_FALSE = 'USER_SET_IS_LOADING_FALSE';
+export const SET_AUTH_MODAL_SHOWN_true = 'SET_AUTH_MODAL_SHOWN_true';
+export const SET_AUTH_MODAL_SHOWN_false = 'SET_AUTH_MODAL_SHOWN_false';

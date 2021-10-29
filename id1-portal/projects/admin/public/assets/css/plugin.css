@@ -1,0 +1,16 @@
+.pluginAddForm {
+    max-width: 1030px;
+    min-width: 300px;
+}
+
+.pluginGroupButton>a{
+    color: black !important;
+}
+
+.pagePlugins .MuiToolbar-root.MuiToolbar-regular span {
+    display: flex;
+}
+
+.pagePlugins .MuiPaper-root.MuiPaper-elevation2.MuiPaper-rounded {
+    min-width: 400px;
+}

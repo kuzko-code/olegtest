@@ -1,0 +1,8 @@
+div#SelectLanguage {
+    width: 150px;
+}
+
+.disabledActionButtons div:first-child .selectActionButtons:first-of-type button{
+    pointer-events: none; 
+    opacity: 0.65;
+}

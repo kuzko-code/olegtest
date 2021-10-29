@@ -1,0 +1,8 @@
+/projects/admin/build/*
+/projects/admin/node_modules/*
+/projects/backend/dist/*
+/projects/backend/node_modules/*
+/projects/db_migrate/dist/*
+/projects/db_migrate/node_modules/*
+/projects/public/build/*
+/projects/public/node_modules/*

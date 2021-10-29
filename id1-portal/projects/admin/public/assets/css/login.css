@@ -1,0 +1,150 @@
+
+.btn {
+    padding: 9px 20px !important;
+}
+
+.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+ }
+/*! CSS Used from: https://ukc.gov.ua/wp-content/themes/ukc/html/dist/static/css/main.css ; media=all */
+@media all{
+    section{display:block;}
+    a{background-color:transparent;-webkit-text-decoration-skip:objects;color:inherit;text-decoration:none;-webkit-transition:.3s;-o-transition:.3s;transition:.3s;}
+    button,input{line-height:1.15;margin:0;overflow:visible;}
+    button{text-transform:none;}
+    button{-webkit-appearance:button;}
+    /* [type=button]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0;}
+    [type=button]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText;} */
+    ::after,::before{-webkit-box-sizing:inherit;box-sizing:inherit;}
+    .container{margin-right:auto;margin-left:auto;padding-right:15px;padding-left:15px;width:100%;}
+    @media (min-width:768px){
+    .container{max-width:750px;}
+    }
+    @media (min-width:1221px){
+    .container{max-width:1200px;}
+    }
+    *{outline:0!important;padding:0;margin:0;}
+    *,:after,:before{-webkit-box-sizing:border-box;box-sizing:border-box;}
+    input{-webkit-appearance:none;-webkit-border-radius:0;border-radius:0;font-family:"ProbaPro-Regular","Arial","Helvetica","Tahoma",sans-serif;font-weight:400;font-style:normal;font-size:100%;}
+    input::-ms-clear{display:none!important;}
+    input::-ms-reveal{display:none!important;}
+    html [type=button]{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+    button{padding:0;border:0;background-color:transparent;cursor:pointer;font-family:"Roboto-Regular","Arial","Helvetica","Tahoma",sans-serif;font-weight:400;font-style:normal;font-size:100%;}
+    .link,.link:hover{text-decoration:none!important;}
+    .link{color:#005b85;border-bottom:1px solid #005b85;}
+    .link:hover{border-bottom-color:transparent;}
+    a:focus,a:hover{color:inherit;text-decoration:none;}
+    .btn{display:inline-block;vertical-align:middle;cursor:pointer;-webkit-transition:.15s ease-in-out;-o-transition:.15s ease-in-out;transition:.15s ease-in-out;border:1px solid transparent;text-align:center;padding:9px 20px;line-height:1.5;font-size:125%;min-width:140px;font-family:"Roboto-Regular","Arial","Helvetica","Tahoma",sans-serif;font-weight:400;font-style:normal;}
+    .btn:focus,.btn:hover{text-decoration:none;}
+    .btn-primary{background-color:#005b85 !important;border-color:#005b85 !important;color:#fff !important;}
+    .btn-primary:hover{background-color:#004a6c;border-color:#004a6c;color:#fff;}
+    .btn-primary:disabled{background-color:#005b85;border-color:#005b85;color:#fff;}
+    .btn:disabled{opacity:.65;}
+    .btn:disabled{cursor:default;}
+    .form-field{position:relative;margin-bottom:12px;}
+    .form-label:after{content:'*';color:#c80000;}
+    .form-label{display:inline-block;vertical-align:top;margin-bottom:10px;}
+    .form-control{height:44px !important;padding:2px 28px 0 !important;}
+    .form-control{width:100% !important;display:block !important;border:1px solid #6d727c !important;color:#555 !important;}
+    /* .form-control:focus{border-color:#005b85;} */
+    .form-control::-webkit-input-placeholder{color:#555 !important;opacity:.65 !important;}
+    .form-control:-moz-placeholder,.form-control::-moz-placeholder{color:#555 !important;opacity:.65 !important;}
+    .form-control:-ms-input-placeholder{color:#555 !important;opacity:.65 !important;}
+    .form-control:disabled{opacity:.65 !important;background-color:#e9ecef !important;}
+    .form-control:disabled:focus{border-color:#6d727c !important;}
+    .form-control:disabled::-webkit-input-placeholder{opacity:1 !important;}
+    .form-control:disabled:-moz-placeholder,.form-control:disabled::-moz-placeholder{opacity:1 !important;}
+    .form-control:disabled:-ms-input-placeholder{opacity:1 !important;}
+    .form-forgot{position:absolute;right:50px;bottom:80px;background-color:#fff;}
+    @media (max-width:767px){
+    .form-forgot{font-size:14px;bottom:13px;}
+    }
+    .default__inner{margin-top:24px;}
+    @media (min-width:1221px){
+    .default__inner{padding-bottom:10px;}
+    }
+    @media (min-width:768px) and (max-width:1220px){
+    .default__inner{padding-bottom:16px;}
+    }
+    .section:first-child .section__inner{padding-top:0;}
+    .section__inner{padding:30px 0;}
+    @media (min-width:768px) and (max-width:1220px){
+    .section__inner{padding:24px 0;}
+    }
+    @media (max-width:767px){
+    .section__inner{padding:40px 0;}
+    }
+    @media (min-width:768px){
+    .section__head{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;}
+    }
+    @media (min-width:1221px){
+    .section__head{border-bottom:1px solid #b4b4b4;padding:0 0 8px;}
+    }
+    @media (max-width:1220px){
+    .section__head{margin-bottom:12px;}
+    }
+    .section__title{font-size:150%;font-family:"ProbaPro-Medium","Arial","Helvetica","Tahoma",sans-serif;font-weight:400;font-style:normal;-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;}
+    @media (max-width:767px){
+    .section__title{line-height:1.1;margin-bottom:10px;}
+    }
+    .section__body{margin-bottom:30px;}
+    @media (min-width:1221px){
+    .section__body{margin-top:25px;}
+    }
+    .section__body:last-child{margin-bottom:0;}
+    .section--title .section__inner{padding-bottom:0;}
+    .main-layout__action{margin-top:30px;}
+    @media (min-width:768px){
+    .main-layout__action>.btn{min-width:270px;}
+    }
+    .main-layout__action>.link{font-size:125%;cursor:pointer;}
+    @media (max-width:767px){
+    .main-layout__action>.link{border-bottom:0;text-decoration:underline;}
+    .main-layout__action>.link:hover{text-decoration:none;}
+    }
+    @media (min-width:768px){
+    .main-layout__action>._btn{margin-right:30px;}
+    .main-layout__action>._btn:last-child{margin-right:0;}
+    }
+    @media (max-width:767px){
+    .main-layout__action>._btn{width:100%;display:block;text-align:center;margin-bottom:20px;}
+    .main-layout__action>._btn:last-child{margin-bottom:0;}
+    }
+    }
+    /*! CSS Used from: https://ukc.gov.ua/wp-content/themes/ukc/css/custom.css ; media=all */
+    @media all{
+    .section__body  a:hover{text-decoration:underline;text-decoration-color:inherit;}
+    @media (max-width: 1220px) and (min-width: 641px){
+    .section__title{text-align:center;}
+    }
+    .btn.btn-primary,.btn.btn-primary:hover{text-decoration:none;}
+    }
+    /*! CSS Used from: https://ukc.gov.ua/portal-build/bundle.css ; media=all */
+    @media all{
+    .text_centered{text-align:center;}
+    }
+    @font-face {
+        font-family: "ProbaPro";
+        src: url("https://nomail.com.ua/files/woff/ff5a2c389414bb416122e8ee86c1f35c.woff") format("truetype");
+        font-weight: 400
+    }
+    
+    @font-face {
+        font-family: "ProbaPro-Medium";
+        src: url("https://nomail.com.ua/files/woff/1571f9bb39857e70daea6e094acd5d69.woff") format("truetype");
+        font-weight: 500
+    }
+    
+    @font-face {
+        font-family: "ProbaPro-SemiBold";
+        src: 
+        url("https://nomail.com.ua/files/woff/8b16e95c402b8e820088bcec7610af1a.woff") format("truetype");
+        font-weight: 600
+    }
+    
+    @font-face {
+        font-family: "ProbaPro-Bold";
+        src: url("https://nomail.com.ua/files/woff/e3c44c1e3b47fbb22da927c0763e425e.woff") format("truetype");
+        font-weight: 700
+    }

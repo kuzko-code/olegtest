@@ -1,0 +1,219 @@
+.form-group.field.field-object {
+  margin-bottom: 0 !important;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.dropdown:hover .dropbtn {
+  background-color: #75d1be;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  align-items: center;
+}
+
+.delete {
+  margin-left: auto;
+}
+
+.color-box {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+
+.dropdown-content > div:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.tabTitle {
+  font-weight: 600;
+}
+
+.tabTitle a:hover {
+  color: rgb(0, 0, 0);
+}
+
+.compositionSection__listContainer {
+  width: 100%;
+}
+
+.widgetCompositionSettings__container .compositionSection__container {
+  border-width: 1px;
+  border-color: #c2c2c2;
+  border-style: dashed;
+  box-shadow: none;
+}
+
+.compositionSection__addButtonContainer {
+  width: 100%;
+  text-align: center;
+}
+
+.widgetCompositionSettings__container .compositionSection__addButton {
+  padding: 0;
+  margin: 0 auto 20px;
+  min-width: 0px;
+  color: #c2c2c2;
+}
+
+.compositionSection__addButton::before,
+.compositionSection__addButton::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background-color: #c2c2c2;
+}
+
+.compositionSection__addButton::after {
+  left: 20px;
+}
+
+.compositionSection__addButton::before {
+  right: 20px;
+}
+
+.compositionSection__popoverList {
+  margin: 0;
+  padding: 0;
+}
+
+.compositionSection__popoverItem {
+  list-style: none;
+}
+
+.compositionSection__popoverIcon {
+  margin-right: 10px;
+}
+
+.compositionSection__popoverButton {
+  white-space: nowrap;
+  text-transform: none;
+  font-size: 14px;
+}
+
+.compositionItem {
+  display: grid;
+  grid-template-columns: 40px 1fr 115px;
+  border: 2px #e4e9f0 solid;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  cursor: pointer;
+}
+
+.dl-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.dragged .compositionItem {
+  opacity: 0.4;
+}
+
+.compositionItem__iconsWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.compositionItem__listIcon {
+  justify-content: center;
+  background-color: #e4e9f0;
+}
+
+.compositionItem__title {
+  color: #7f77a9;
+  font-weight: 500;
+  padding: 14px;
+  margin: 0;
+}
+
+.compositionItem__settingsBtn {
+  border: none;
+  background-color: transparent;
+}
+
+.compositionItem__okBtnDeletionConfirm {
+  margin-right: 6px !important;
+}
+
+.widgetCompositionSettings__modal {
+  position: absolute;
+  max-height: 85%;
+  overflow: auto;
+  top: 50%;
+  left: 50%;
+}
+
+.widgetCompositionSettings__modal-transform {
+  transform: translate(-50%, -50%);
+}
+
+.linksEditor__form {
+  max-width: 480px;
+}
+
+.widgetCompositionSettings__container {
+  max-width: 920px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sliderSettingsItem__button {
+  flex: 1 1 0%;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+  font-weight: bold;
+}
+
+.latestPopularNewsForm input[type='radio'],
+.latestPopularNewsForm input[type='checkbox'] {
+  margin-right: 8px;
+}
+
+.latestPopularNewsForm input[type='range'] {
+  padding-right: 0;
+}
+
+.latestPopularNewsForm .radio-inline {
+  margin-right: 20px;
+}
+
+.htmlEditorWrapper {
+  margin-bottom: 20px;
+}
+
+.linkEditorFooter {
+  text-align: right;
+}
+
+.btnModalAddClose {
+  width: 79px;
+}
+
+#contacts-form .errors {
+  display: none;
+}
+
+#contacts-form ul.error-detail {
+  list-style: none;
+  padding-inline-start: 0;
+  padding: 5px;
+}

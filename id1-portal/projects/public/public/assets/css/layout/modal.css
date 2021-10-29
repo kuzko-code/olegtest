@@ -1,0 +1,32 @@
+.modal-header {
+    border:none !important;
+    padding: 1rem 1rem 0 1rem !important
+}
+
+.modal-body {
+    padding: 0 1rem 2rem 3.5rem !important
+}
+
+.outer-links {
+    line-height: 30px;
+    
+}
+
+.modal-content {
+    background: radial-gradient(435.92px at 50% 50%,#104D82 0%,#234161 100%);
+    border:none !important;
+    
+}
+.hoverwhite {
+    color: #fff;
+    font-family: "ProbaPro" !important;
+    
+}
+
+.hoverwhite:hover {
+    color: #fff !important;
+}
+
+.main-logo:hover {
+    text-decoration: none !important;
+}

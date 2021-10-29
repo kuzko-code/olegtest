@@ -1,0 +1,179 @@
+
+> ogp-back@1.0.0 start /app/backend
+> node dist/main.js
+
+[2021-10-27T15:20:24.919Z] [1432]: db connection established
+[2021-10-27T15:20:25.975Z] [1432]: server listening on :::4000
+[2021-10-27T15:20:25.992Z] [1432]: db connection established
+[2021-10-27T15:51:18.627Z] [1432]: RECEIVED undefined SIGNAL 
+	 closing server...
+
+> ogp-back@1.0.0 start /app/backend
+> node dist/main.js
+
+[2021-10-27T15:51:28.522Z] [1847]: RECEIVED undefined SIGNAL 
+	 closing server...
+
+> ogp-back@1.0.0 start /app/backend
+> node dist/main.js
+
+[2021-10-27T15:56:19.881Z] [354]: db connection established
+[2021-10-27T15:56:20.934Z] [354]: server listening on :::4000
+[2021-10-27T15:56:20.956Z] [354]: db connection established
+[2021-10-27T16:01:00.111Z] [354]: db connection established
+error =>> Facebook bot is not configured
+[2021-10-27T16:56:13.714Z] [354]: [Memory usage statistics: 
+   rss: 56.87 MB
+   heapTotal: 15.41 MB
+   heapUsed: 12.8 MB
+   external: 1.45 MB
+[2021-10-27T16:56:14.229Z] [354]: Pool health report:
+total number of clients existing within the pool: 1
+The number of clients which are not checked out but are currently idle in the pool: 0
+The number of queued requests waiting on a client: 0
+end.
+
+[2021-10-27T17:01:00.115Z] [354]: db connection established
+error =>> Facebook bot is not configured
+[2021-10-27T17:14:00.420Z] [354]: new incoming message: GET /
+[2021-10-27T17:14:04.419Z] [354]: new incoming message: GET /favicon.ico
+[2021-10-27T17:32:40.607Z] [354]: new incoming message: GET /
+[2021-10-27T17:56:13.794Z] [354]: [Memory usage statistics: 
+   rss: 63 MB
+   heapTotal: 18.41 MB
+   heapUsed: 16.46 MB
+   external: 1.46 MB
+[2021-10-27T17:56:14.229Z] [354]: Pool health report:
+total number of clients existing within the pool: 1
+The number of clients which are not checked out but are currently idle in the pool: 0
+The number of queued requests waiting on a client: 0
+end.
+
+[2021-10-27T18:01:00.120Z] [354]: db connection established
+error =>> Facebook bot is not configured
+[2021-10-27T18:03:58.828Z] [354]: RECEIVED undefined SIGNAL 
+	 closing server...
+
+> ogp-back@1.0.0 start /app/backend
+> node dist/main.js
+
+[2021-10-27T18:04:08.425Z] [418]: RECEIVED undefined SIGNAL 
+	 closing server...
+
+> ogp-back@1.0.0 start /app/backend
+> node dist/main.js
+
+
+> ogp-back@1.0.0 start /app/backend
+> node dist/main.js
+
+[2021-10-27T18:10:07.355Z] [368]: db connection established
+[2021-10-27T18:10:08.340Z] [368]: server listening on :::4000
+[2021-10-27T18:10:08.355Z] [368]: db connection established
+[2021-10-27T18:10:29.812Z] [368]: new incoming message: GET /language/public
+[2021-10-27T18:10:33.816Z] [368]: new incoming message: GET /pluginsinfo
+[2021-10-27T18:10:34.221Z] [368]: db connection established
+[2021-10-27T18:10:34.244Z] [368]: new incoming message: GET /settings/mainNavigation?language=ua
+[2021-10-27T18:10:34.631Z] [368]: new incoming message: GET /settings?language=ua&titles=layout,siteLogos,contacts,GovSites,metaGoogleSiteVerification,telegramNotification,facebookSettings
+[2021-10-27T18:10:35.012Z] [368]: new incoming message: GET /settings/locationOfBanners?language=ua&enabled=true
+[2021-10-27T18:10:35.409Z] [368]: db connection established
+[2021-10-27T18:10:35.410Z] [368]: db connection established
+[2021-10-27T18:10:35.500Z] [368]: new incoming message: GET /news?include=rubric&sortDirection=desc&language=ua&fields=id,title,published_date,main_picture&isPublished=true&count=1&sortField=published_date
+[2021-10-27T18:10:35.894Z] [368]: new incoming message: GET /settings/usefulLinks?language=ua
+[2021-10-27T18:10:53.391Z] [368]: new incoming message: GET /settings/siteLogos?language=undefined
+[2021-10-27T18:10:53.799Z] [368]: new incoming message: GET /language/admin
+[2021-10-27T18:10:54.183Z] [368]: new incoming message: OPTIONS /adminNavigation
+[2021-10-27T18:10:54.183Z] [368]: new incoming message: OPTIONS /auth/user
+[2021-10-27T18:10:54.184Z] [368]: new incoming message: GET /pluginsinfo
+[2021-10-27T18:10:54.559Z] [368]: new incoming message: GET /auth/user
+[2021-10-27T18:10:54.928Z] [368]: new incoming message: GET /adminNavigation
+[2021-10-27T18:10:55.308Z] [368]: db connection established
+[2021-10-27T18:10:55.309Z] [368]: db connection established
+[2021-10-27T18:10:55.324Z] [368]: new incoming message: GET /auth/user
+[2021-10-27T18:11:08.457Z] [368]: new incoming message: GET /pluginsinfo
+[2021-10-27T18:11:08.862Z] [368]: new incoming message: GET /language/public
+[2021-10-27T18:11:09.263Z] [368]: db connection established
+[2021-10-27T18:11:09.280Z] [368]: new incoming message: GET /settings/mainNavigation?language=ua
+[2021-10-27T18:11:09.662Z] [368]: new incoming message: GET /settings?language=ua&titles=layout,siteLogos,contacts,GovSites,metaGoogleSiteVerification,telegramNotification,facebookSettings
+[2021-10-27T18:11:10.053Z] [368]: new incoming message: GET /settings/locationOfBanners?language=ua&enabled=true
+[2021-10-27T18:11:10.452Z] [368]: db connection established
+[2021-10-27T18:11:10.452Z] [368]: db connection established
+[2021-10-27T18:11:10.494Z] [368]: new incoming message: GET /news?include=rubric&sortDirection=desc&language=ua&fields=id,title,published_date,main_picture&isPublished=true&count=1&sortField=published_date
+[2021-10-27T18:11:10.880Z] [368]: new incoming message: GET /settings/usefulLinks?language=ua
+[2021-10-27T18:11:18.718Z] [368]: new incoming message: GET /language/public
+[2021-10-27T18:11:19.117Z] [368]: new incoming message: GET /pluginsinfo
+[2021-10-27T18:11:19.508Z] [368]: new incoming message: GET /settings?language=ua&titles=layout,siteLogos,contacts,GovSites,metaGoogleSiteVerification,telegramNotification,facebookSettings
+[2021-10-27T18:11:19.884Z] [368]: new incoming message: GET /settings/mainNavigation?language=ua
+[2021-10-27T18:11:20.263Z] [368]: new incoming message: GET /settings/locationOfBanners?language=ua&enabled=true
+[2021-10-27T18:11:20.683Z] [368]: new incoming message: GET /news?include=rubric&sortDirection=desc&language=ua&fields=id,title,published_date,main_picture&isPublished=true&count=1&sortField=published_date
+[2021-10-27T18:11:21.064Z] [368]: new incoming message: GET /settings/usefulLinks?language=ua
+
+> ogp-back@1.0.0 start /app/backend
+> node dist/main.js
+
+[2021-10-28T08:47:43.257Z] [382]: db connection established
+[2021-10-28T08:47:44.245Z] [382]: server listening on :::4000
+[2021-10-28T08:47:44.260Z] [382]: db connection established
+[2021-10-28T08:48:15.324Z] [382]: new incoming message: GET /language/public
+[2021-10-28T08:48:19.250Z] [382]: new incoming message: GET /pluginsinfo
+[2021-10-28T08:48:19.650Z] [382]: db connection established
+[2021-10-28T08:48:19.679Z] [382]: new incoming message: GET /settings/mainNavigation?language=ua
+[2021-10-28T08:48:20.066Z] [382]: new incoming message: GET /settings?language=ua&titles=layout,siteLogos,contacts,GovSites,metaGoogleSiteVerification,telegramNotification,facebookSettings
+[2021-10-28T08:48:20.448Z] [382]: new incoming message: GET /settings/locationOfBanners?language=ua&enabled=true
+[2021-10-28T08:48:20.842Z] [382]: db connection established
+[2021-10-28T08:48:20.843Z] [382]: db connection established
+[2021-10-28T08:48:20.932Z] [382]: new incoming message: GET /news?include=rubric&sortDirection=desc&language=ua&fields=id,title,published_date,main_picture&isPublished=true&count=1&sortField=published_date
+[2021-10-28T08:48:21.323Z] [382]: new incoming message: GET /settings/usefulLinks?language=ua
+[2021-10-28T08:49:17.839Z] [382]: RECEIVED undefined SIGNAL 
+	 closing server...
+
+> ogp-back@1.0.0 start /app/backend
+> node dist/main.js
+
+[2021-10-28T08:49:27.409Z] [436]: RECEIVED undefined SIGNAL 
+	 closing server...
+
+> ogp-back@1.0.0 start /app/backend
+> node dist/main.js
+
+
+> ogp-back@1.0.0 start /app/backend
+> node dist/main.js
+
+[2021-10-28T08:55:23.167Z] [404]: db connection established
+[2021-10-28T08:55:24.145Z] [404]: server listening on :::4000
+[2021-10-28T08:55:24.161Z] [404]: db connection established
+[2021-10-28T08:59:35.628Z] [404]: new incoming message: GET /pluginsinfo
+[2021-10-28T08:59:39.519Z] [404]: new incoming message: GET /language/public
+[2021-10-28T08:59:39.916Z] [404]: db connection established
+[2021-10-28T08:59:39.939Z] [404]: new incoming message: GET /settings/mainNavigation?language=ua
+[2021-10-28T08:59:40.324Z] [404]: new incoming message: GET /settings?language=ua&titles=layout,siteLogos,contacts,GovSites,metaGoogleSiteVerification,telegramNotification,facebookSettings
+[2021-10-28T08:59:40.704Z] [404]: new incoming message: GET /settings/locationOfBanners?language=ua&enabled=true
+[2021-10-28T08:59:41.102Z] [404]: db connection established
+[2021-10-28T08:59:41.102Z] [404]: db connection established
+[2021-10-28T08:59:41.153Z] [404]: new incoming message: GET /news?include=rubric&sortDirection=desc&language=ua&fields=id,title,published_date,main_picture&isPublished=true&count=1&sortField=published_date
+[2021-10-28T08:59:41.535Z] [404]: new incoming message: GET /settings/usefulLinks?language=ua
+[2021-10-28T08:59:59.217Z] [404]: new incoming message: GET /settings/siteLogos?language=undefined
+[2021-10-28T08:59:59.616Z] [404]: new incoming message: GET /language/admin
+[2021-10-28T09:00:00.000Z] [404]: new incoming message: GET /pluginsinfo
+[2021-10-28T09:00:00.375Z] [404]: new incoming message: OPTIONS /auth/user
+[2021-10-28T09:00:00.376Z] [404]: new incoming message: OPTIONS /adminNavigation
+[2021-10-28T09:00:00.379Z] [404]: new incoming message: GET /adminNavigation
+[2021-10-28T09:00:00.749Z] [404]: new incoming message: GET /auth/user
+[2021-10-28T09:00:01.134Z] [404]: db connection established
+[2021-10-28T09:00:01.134Z] [404]: db connection established
+[2021-10-28T09:00:01.150Z] [404]: new incoming message: GET /auth/user
+[2021-10-28T09:01:00.071Z] [404]: db connection established
+error =>> Facebook bot is not configured
+[2021-10-28T09:19:47.943Z] [404]: RECEIVED undefined SIGNAL 
+	 closing server...
+
+> ogp-back@1.0.0 start /app/backend
+> node dist/main.js
+
+[2021-10-28T09:19:57.524Z] [610]: RECEIVED undefined SIGNAL 
+	 closing server...
+
+> ogp-back@1.0.0 start /app/backend
+> node dist/main.js
+

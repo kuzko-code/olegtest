@@ -1,0 +1,4 @@
+module.exports = {
+  config: 'dist/config/sequelize-cli.js',
+  'seeders-path': './seeders'
+};

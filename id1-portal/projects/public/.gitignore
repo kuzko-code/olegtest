@@ -1,0 +1,11 @@
+# Node Modules
+/node_modules
+
+# Distribution 
+/build
+
+#vs code
+/.vscode
+
+#env
+/.env

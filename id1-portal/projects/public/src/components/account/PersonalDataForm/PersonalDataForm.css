@@ -1,0 +1,20 @@
+#personalDataForm__birthday {
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+  color: #495057;
+  width: 200px;
+}
+
+.personalDataForm__datePickerWrapper .MuiIconButton-root {
+  padding: 0;
+}
+
+.personalDataForm__datePickerWrapper.disabled .MuiTextField-root {
+  background-color: #e9ecef;
+}
+
+@media (max-width: 360px) {
+  #personalDataForm__birthday {
+    width: 160px;
+  }
+}

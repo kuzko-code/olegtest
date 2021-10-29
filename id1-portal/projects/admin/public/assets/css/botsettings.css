@@ -1,0 +1,9 @@
+.bot-settings .is-bot-enabled {
+    align-self: start !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.bot-settings .checkbox-container {
+    margin-bottom: 1rem;
+}

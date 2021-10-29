@@ -1,0 +1,3 @@
+DROP TABLE news;
+DROP TABLE tags;
+DROP TABLE rubrics;

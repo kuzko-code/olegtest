@@ -1,0 +1,1 @@
+ALTER TABLE attachments ALTER COLUMN owner_id DROP NOT NULL;

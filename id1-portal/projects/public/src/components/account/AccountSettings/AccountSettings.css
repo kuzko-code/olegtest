@@ -1,0 +1,16 @@
+.accountSettings__menuItemText {
+  text-transform: none;
+}
+
+.accountSettings__formErrorMessage {
+  font-size: 18px;
+  color: red;
+}
+
+.accountSettings__editBtnText {
+  font-size: 20px;
+}
+
+.requiredCustom::after {
+  content: '*';
+}

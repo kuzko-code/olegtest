@@ -1,0 +1,98 @@
+.govSettings .pageElementBoxTitle,
+.linksEditor .pageElementBoxTitle {
+  padding: 15px 20px 8px 15px !important;
+}
+
+.rjsForm .array-item-add {
+  padding: 0;
+  margin-left: auto;
+  margin-right: 15px;
+}
+
+.rjsForm .array-item-add button {
+  color: #fff;
+  background-color: #1ab394;
+  border-color: #1ab394;
+  width: 79px;
+}
+.btn-group .array-item-move-up {
+    border: 1px solid #dee2e6 !important;
+    background-color: #f8f9fa;
+}
+
+.btn-group .array-item-move-down {
+  border: 1px solid #dee2e6 !important;
+  background-color: #f8f9fa;
+}
+
+.rjsForm .array-item {
+  margin-bottom: 1.5rem !important;
+}
+
+.rjsForm .rjsf {
+  margin-bottom: 1.5rem !important;
+}
+
+.rjsForm .array-item-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.rjsForm .array-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rjsForm div.array-item > div:first-child {
+  display: inline-block;
+  flex-basis: 0 !important;
+  flex-grow: 1 !important;
+  max-width: 100% !important;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.rjsForm div.array-item > div:last-child {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.rjsForm .array-item-toolbox {
+  margin-top: 29px;
+}
+
+.rjsForm .control-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.rjsForm .errors {
+  display: none;
+}
+
+.rjsForm ul.error-detail {
+  list-style: none;
+  padding-inline-start: 0;
+  padding: 5px;
+}
+
+.linksEditor .sun-editor-editable * {
+  font-family: 'ProbaProRegular', 'SourceSansPro' !important;
+}
+
+.linksEditor .blueTheme .sun-editor-editable a {
+  color: #304f80;
+}
+.linksEditor .greenTheme .sun-editor-editable a {
+  color: #246d3f;
+}
+
+@media (max-width: 767px) {
+  .linksEditorContainer {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,40 @@
+.subscriptionSettings__descriptionText {
+  font-size: 20px;
+}
+
+.subscriptionSettings__submitBtn {
+  margin: 20px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  background-color: var(--theme-color);
+  width: 230px;
+}
+
+.subscriptionSettings__UnsubscribeBtn {
+  margin: 20px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #D70000;
+  width: 230px;
+
+}
+
+.subscriptionSettings__UnsubscribeBtn:hover {
+  background-color: #d6373c;
+  color: white;
+}
+
+.subscriptionSettings__submitBtn:disabled,
+.subscriptionSettings__submitBtn:hover {
+  background: linear-gradient(rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.2)) no-repeat,
+    linear-gradient(var(--theme-color), var(--theme-color)) no-repeat;
+}
+
+body.swal2-height-auto {
+  height: inherit !important;
+}

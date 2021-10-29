@@ -1,0 +1,18 @@
+.pageElementBoxContent h5 {
+  font-size: 14px;
+}
+
+.newsSettings .pageElementBoxTitle {
+  padding: 15px 20px 8px 15px !important;
+}
+
+.sliderSettings__closeModalCross {
+  border: none;
+  background-color: transparent;
+  color: #727272;
+}
+
+.mainSettingsModal__btnWrapper {
+  width: max-content;
+  margin-left: auto;
+}

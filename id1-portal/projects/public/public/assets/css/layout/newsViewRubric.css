@@ -1,0 +1,57 @@
+.newsViewRubric__wrapper {
+  margin: 15px 0 10px 0;
+  padding: 0;
+}
+
+.newsViewRubric__content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.blockViewRubricItem__wrapper {
+  flex-basis: 250px;
+  flex-grow: 1;
+  margin-right: 26px;
+  margin-bottom: 20px;
+}
+
+.listViewRubricItem__wrapper {
+  min-width: 200px;
+  max-width: 410px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+.blockViewRubricItem__img {
+  max-width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.listViewRubricItem__link,
+.listViewRubricItem__link:hover,
+.blockViewRubricItem__link,
+.blockViewRubricItem__link:hover {
+  color: var(--theme-color);
+}
+
+.blockViewRubricItem__title,
+.listViewRubricItem__title {
+  font-family: 'ProbaProRegular', 'SourceSansPro' !important;
+  margin-top: 0 !important;
+  color: var(--theme-color);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.blockViewRubricItem__date,
+.listViewRubricItem__date {
+  font-size: 16px;
+  color: #a3a3a3;
+  padding: 0;
+  margin: 0 0 8px 0;
+}

@@ -1,0 +1,13 @@
+.red-dot {
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    right: 20px;
+    top: 10px;
+    border-radius: 50%;
+    background-color: red;
+}
+dropdown-toggle:after{
+    display:none !important;
+}

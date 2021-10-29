@@ -1,0 +1,60 @@
+[2021-10-27T15:51:18.626Z] [1432]: Unhandled exception
+terminating connection due to administrator command
+error: terminating connection due to administrator command
+    at Connection.parseE (/app/backend/node_modules/pg/lib/connection.js:614:13)
+    at Connection.parseMessage (/app/backend/node_modules/pg/lib/connection.js:413:19)
+    at Socket.<anonymous> (/app/backend/node_modules/pg/lib/connection.js:129:22)
+    at Socket.emit (events.js:314:20)
+    at addChunk (_stream_readable.js:297:12)
+    at readableAddChunk (_stream_readable.js:272:9)
+    at Socket.Readable.push (_stream_readable.js:213:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)
+[2021-10-27T15:51:28.521Z] [1847]: Unhandled rejection
+getaddrinfo ENOTFOUND postgres-db-id1-portal
+Error: getaddrinfo ENOTFOUND postgres-db-id1-portal
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:66:26)
+[2021-10-27T18:03:58.828Z] [354]: Unhandled exception
+terminating connection due to administrator command
+error: terminating connection due to administrator command
+    at Connection.parseE (/app/backend/node_modules/pg/lib/connection.js:614:13)
+    at Connection.parseMessage (/app/backend/node_modules/pg/lib/connection.js:413:19)
+    at Socket.<anonymous> (/app/backend/node_modules/pg/lib/connection.js:129:22)
+    at Socket.emit (events.js:314:20)
+    at addChunk (_stream_readable.js:297:12)
+    at readableAddChunk (_stream_readable.js:272:9)
+    at Socket.Readable.push (_stream_readable.js:213:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)
+[2021-10-27T18:04:08.425Z] [418]: Unhandled rejection
+getaddrinfo ENOTFOUND postgres-db-id1-portal
+Error: getaddrinfo ENOTFOUND postgres-db-id1-portal
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:66:26)
+[2021-10-28T08:49:17.838Z] [382]: Unhandled exception
+terminating connection due to administrator command
+error: terminating connection due to administrator command
+    at Connection.parseE (/app/backend/node_modules/pg/lib/connection.js:614:13)
+    at Connection.parseMessage (/app/backend/node_modules/pg/lib/connection.js:413:19)
+    at Socket.<anonymous> (/app/backend/node_modules/pg/lib/connection.js:129:22)
+    at Socket.emit (events.js:314:20)
+    at addChunk (_stream_readable.js:297:12)
+    at readableAddChunk (_stream_readable.js:272:9)
+    at Socket.Readable.push (_stream_readable.js:213:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)
+[2021-10-28T08:49:27.408Z] [436]: Unhandled rejection
+getaddrinfo ENOTFOUND postgres-db-id1-portal
+Error: getaddrinfo ENOTFOUND postgres-db-id1-portal
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:66:26)
+[2021-10-28T09:19:47.943Z] [404]: Unhandled exception
+terminating connection due to administrator command
+error: terminating connection due to administrator command
+    at Connection.parseE (/app/backend/node_modules/pg/lib/connection.js:614:13)
+    at Connection.parseMessage (/app/backend/node_modules/pg/lib/connection.js:413:19)
+    at Socket.<anonymous> (/app/backend/node_modules/pg/lib/connection.js:129:22)
+    at Socket.emit (events.js:314:20)
+    at addChunk (_stream_readable.js:297:12)
+    at readableAddChunk (_stream_readable.js:272:9)
+    at Socket.Readable.push (_stream_readable.js:213:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)
+[2021-10-28T09:19:57.523Z] [610]: Unhandled rejection
+getaddrinfo ENOTFOUND postgres-db-id1-portal
+Error: getaddrinfo ENOTFOUND postgres-db-id1-portal
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:66:26)

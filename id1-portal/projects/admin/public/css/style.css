@@ -1,0 +1,472 @@
+.navigation .MuiAutocomplete-listbox {
+  font-weight: 300;
+  color: inherit;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: #3dc7ab;
+}
+
+.px-15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.MuiTableCell-root.MuiTableCell-body>div>button:first-child {
+  margin-left: auto;
+}
+
+.MuiToolbar-root div:nth-child(1) {
+  order: 0;
+}
+
+.MuiToolbar-root div:nth-child(4) {
+  order: 1;
+}
+
+.MuiToolbar-root div:nth-child(2) {
+  order: 2;
+}
+
+.MuiToolbar-root div:nth-child(3) {
+  order: 3;
+}
+
+.SideBar {
+  background-color: #2f4050;
+  max-width: 220px;
+}
+
+.profileElement {
+    white-space: break-spaces;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+body {
+  background-color: #f3f3f4;
+}
+
+.passwordLine {
+  border-bottom: 1px solid #e5e6e7;
+}
+
+.adminValidSpan {
+  color: Red;
+}
+
+.form-control.errorInput {
+  border: 1px solid red;
+}
+
+.authTitle,
+.restoreTitle * {
+  color: #000;
+}
+
+.adminLogin,
+.adminRestore {
+  position: relative;
+  padding-top: 7%;
+}
+
+.loginForm,
+.restoreForm {
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  min-width: 400px;
+  min-height: 350px;
+}
+
+body.adminLoginPage,
+body.adminRestorePage {
+  background-image: url('/public/img/AdminLoginBackground.jpg');
+  background-color: white;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: all;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-attachment: fixed;
+}
+
+.appealAddress {
+  word-break: break-word;
+}
+
+.appealDescription {
+  white-space: pre-wrap;
+}
+
+.i-checks,
+.restoreSubTitle {
+  padding-left: 0;
+  text-align: left !important;
+}
+
+body {
+  font-family: 'open sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* background-color: #2f4050; */
+  font-size: 13px;
+  color: #676a6c;
+  overflow-x: hidden;
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none !important;
+}
+
+.m-t-15 {
+  margin-top: 15px;
+}
+
+.m-b-15 {
+  margin-bottom: 15px;
+}
+
+.m-t-5 {
+  margin-top: 5px;
+}
+
+.m-t-40 {
+  margin-top: 40px;
+}
+
+.h1,
+.h2,
+.h3,
+h1,
+h2,
+h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3,
+h4,
+h5 {
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+#wrapper {
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  overflow-x: hidden;
+}
+
+#pageWrapper {
+  min-height: 100vh;
+}
+
+.wrapperContent {
+  padding: 20px 10px 40px;
+}
+
+.headerNav {
+  padding: 33px 25px;
+  background-color: #293846;
+}
+
+body.miniNavbar .headerNav {
+  padding: 0;
+}
+
+.btn-dark-blue {
+  color: #fff;
+  background-color: #1c84c6;
+  border-color: #1c84c6;
+}
+
+.btn-dark-blue.disabled,
+.btn-dark-blue:disabled {
+  color: #fff;
+  background-color: #1a7bb9;
+  border-color: #1a7bb9;
+}
+
+.btn-mint-green {
+  background-color: #1ab394;
+  border-color: #1ab394;
+  color: #fff;
+}
+
+.btn-mint-green.disabled,
+.btn-mint-green:disabled {
+  background-color: #18a689;
+  border-color: #18a689;
+  color: #fff;
+}
+
+.btn-mint-green:hover,
+.btn-mint-green:focus,
+.btn-mint-green.focus {
+  background-color: #18a689;
+  border-color: #18a689;
+  color: #fff;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.btn-mint-green:not(:disabled):not(.disabled):active,
+.btn-mint-green:not(:disabled):not(.disabled).active,
+.show>.btn-mint-green.dropdown-toggle {
+  background-color: #18a689;
+  border-color: #18a689;
+  color: #fff;
+}
+
+.btn-mint-green:not(:disabled):not(.disabled):active:focus,
+.btn-mint-green:not(:disabled):not(.disabled).active:focus,
+.show>.btn-mint-green.dropdown-toggle:focus {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+button:focus {
+  outline: none;
+}
+
+button {
+  font-size: 13px !important;
+}
+
+.pageElementBox label.control-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.navbar.navbarTop {
+  padding: 0;
+  width: 100%;
+  align-items: inherit;
+}
+
+.navbarTopLinks li {
+  display: inline-flex;
+  align-self: center;
+}
+
+.navbarTopLinks .dropdown-menu li {
+  align-items: center;
+  width: 100%;
+  border: 1px dotted lightgray;
+}
+
+.navbarTopLinks .dropdown-menu li a {
+  padding: 0;
+}
+
+.navbarTopLinks .dropdown-menu .no-messages {
+  padding: 20px;
+  width: max-content;
+}
+
+.navbarTopLinks .dropdown-menu li .close-button {
+  margin: 10px;
+}
+
+.navbarTopLinks .dropdown-menu li .close-button:hover {
+  background-color: #f8f9fa;
+}
+
+.navToggle {
+  padding: 4px 12px;
+  margin: 14px 5px 5px 20px;
+  font-size: 14px;
+  float: left;
+}
+
+.navbarTopLinks li a {
+  padding: 20px 10px;
+  min-height: 50px;
+  font-weight: 600;
+}
+
+.userProfileActions.dropdown-toggle::after,
+.miniUserProfileActions.dropdown-toggle::after {
+  display: none;
+}
+
+.userProfileActions,
+.miniUserProfileActions {
+  text-decoration: none !important;
+}
+
+.dropdown-menu {
+  padding: 0;
+  border: medium none;
+  border-radius: 3px;
+  box-shadow: 0 0 3px rgba(86, 96, 117, 0.7);
+  font-size: 12px;
+  list-style: none outside none;
+  text-shadow: none;
+}
+
+.dropdown-item {
+  padding: 3px 20px;
+  margin: 4px;
+  text-align: left;
+  line-height: 25px;
+}
+
+body.miniNavbar .sideNavbar {
+  width: 70px;
+}
+
+body.miniNavbar .userProfileActions {
+  display: none;
+}
+
+.miniUserProfileActions {
+  display: none;
+}
+
+body.miniNavbar .miniUserProfileActions {
+  display: block;
+}
+
+.navbarLogo {
+  display: none;
+}
+
+body.miniNavbar .navbarLogo {
+  display: block;
+  padding: 18px 0;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+}
+
+.pageHeadline {
+  border-top: 0;
+  padding: 0 10px 20px 10px;
+}
+
+legend {
+  font-size: 1rem;
+}
+
+.border-radius-1 {
+  border-radius: 1px !important;
+}
+
+.pageElementBox {
+  clear: both;
+  margin-bottom: 25px;
+}
+
+.pageElementBoxTitle h5 {
+  display: inline-block;
+  margin: 0 0 7px;
+  padding: 0;
+  font-size: 14px;
+  float: none;
+  text-overflow: ellipsis;
+}
+
+.pageElementBox.collapsed .pageElementBoxContent {
+  display: none;
+}
+
+.pageElementBoxContent {
+  padding: 15px 20px 20px 20px;
+  clear: both;
+  background-color: #fff;
+  border: 1px solid #e7eaec;
+}
+
+.pageElementBoxTitle {
+  padding: 15px 90px 8px 15px;
+  background-color: #fff;
+  border: 1px solid #e7eaec;
+  clear: both;
+}
+
+.pageElementBoxTitle h5 {
+  display: inline-block;
+  margin: 0 0 7px;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  float: none;
+}
+
+.dropzone {
+  padding: 20px 20px;
+  min-height: 140px;
+  background: #fff;
+  border: 1px dashed #1ab394;
+}
+
+.auth-box {
+  max-width: 400px;
+  margin: 0 auto;
+  padding-top: 40px;
+  z-index: 100;
+}
+
+.form-control:focus {
+  border-color: #1ab394;
+}
+
+.font-weight-600 {
+  font-weight: 600 !important;
+}
+
+.border-radius-2px {
+  border-radius: 2px;
+}
+
+.text-light-grey {
+  color: #a7b1c2;
+}
+
+.MTableTitleBold .MuiTypography-root.MuiTypography-h6 {
+  font-weight: 600;
+}
+
+.requiredCustom::after {
+  content: '*';
+}
+
+@media (min-width: 768px) {
+  .sideNavbar {
+    width: 220px;
+    z-index: 2001;
+  }
+}
+
+body#body {
+  overflow-y: scroll !important;
+}
+
+.sun-editor[style*="position: fixed"] .se-resizing-bar {
+  display: none;
+}

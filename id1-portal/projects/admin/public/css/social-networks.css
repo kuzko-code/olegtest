@@ -1,0 +1,42 @@
+.max-w-800px{
+    max-width: 800px;
+}
+
+.socialNetworks .array-item {
+    width: 100%;
+}
+
+.socialNetworks .col-xs-3,
+.socialNetworks .col-xs-9,
+.socialNetworks .col-xs-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+}
+
+.socialNetworks .col-xs-3,
+.socialNetworks .col-xs-9,
+.socialNetworks .col-xs-12 {
+    float: left;
+}
+
+.socialNetworks .col-xs-3 {
+    width: 25%;
+}
+
+.socialNetworks .col-xs-9 {
+    width: 75%;
+}
+
+.socialNetworks .col-xs-12 {
+    width: 100%;
+}
+
+.socialNetworks .col-xs-offset-9 {
+    margin-left: 75%;
+}
+
+.socialNetworks .nav-tabs {
+    border-bottom: none;
+}
