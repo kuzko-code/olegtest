@@ -1,7 +1,6 @@
 import { db } from "../../db";
 import format from "pg-format";
 import { method_payload } from "../base_api_image";
-import { Version } from "../portal/version";
 import {
   registration_payload,
   get_or_delete_portal_update_setting_payload,
@@ -12,7 +11,6 @@ import { UpdatePortal } from "../portal/update";
 import { CONFIGURATIONS } from "../../config/index";
 import { UpdatePortalServices } from "../../helper/updatePortal";
 import randomize from "randomatic";
-import { Messages } from "../messages";
 import { apiServices } from "../../helper/apiServices";
 const schedule = require("node-schedule-tz");
 const updatePortalUpdateSettings = `UPDATE portal_update_settings

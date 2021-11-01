@@ -1,0 +1,100 @@
+:root {
+    --independent-block-color: var(--theme-color);
+    --independent-block-btn-color: #ffffff;
+    --independent-block-btn-bg-color: var(--theme-color);
+    --independent-block-secondary-color: #a3a3a3;
+}
+
+.independent-block {
+    position: relative;
+    overflow: hidden;
+}
+
+.independent-block .independent-block-thumb {
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    padding-top: 75%;
+}
+
+.independent-block .independent-block-thumb::before {
+    content: ' ';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.85) 100%);
+    background: -webkit-gradient(linear, left bottom, left bottom, color-stop(60%, #0000), color-stop(100%, #000000d9));
+    background: -webkit-linear-gradient(bottom, #0000 40%, #000000d9 100%);
+    background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.85) 100%);
+    background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.85) 100%);
+    background: linear-gradient(to bottom, #0000 40%, #000000d9 100%);
+}
+
+.independent-block .independent-block-thumb img {
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.independent-block .independent-block-thumb:hover img {
+    -webkit-transform: scale(1.15);
+    -moz-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    -o-transform: scale(1.15);
+    transform: scale(1.15);
+}
+
+.independent-block .independent-block-content {
+    padding: 0;
+}
+
+.independent-block .independent-block-content .independent-block-title {
+    line-height: 20px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.independent-block .independent-block-content .independent-block-title>a {
+    color: var(--independent-block-color);
+}
+
+.independent-block .independent-block-content .independent-block-date {
+
+    padding: 3px 0;
+    margin-bottom: 10px;
+    color: var(--independent-block-secondary-color);
+    font-size: 16px;
+}
+
+.independent-block .independent-block-content .independent-block-btn {
+    color: var(--independent-block-btn-color);
+    background-color: var(--independent-block-btn-bg-color);
+    font-weight: 400;
+    padding: 4px;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.independent-block .independent-block-content .independent-block-btn:hover {
+    text-decoration: none;
+}

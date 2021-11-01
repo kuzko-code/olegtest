@@ -7,7 +7,6 @@ import {
   DecodeAccessToken,
   Send,
   ParseBody,
-  AcceptACL,
 } from "../../etc/http/micro_controller";
 
 import { verifyToken } from "../../handlers/jwt";
@@ -31,28 +30,6 @@ class Controller implements MicroController {
   @Catch
   @Send(200)
   @DecodeAccessToken(verifyToken as Decoder)
-  @AcceptACL(["root_admin", "global_admin"])
-  @ParseBody
-  async POST(req: IncomingMessage, res: ServerResponse, ctx: handler_context) {
-    const title = req.params.title;
-    const { settings_object, settings_schema_id, language } = req.body;
-    // const language = req.body.language;
-
-    return settings_with_validation.create_site_settings({
-      settings: [
-        {
-          title,
-          settings_object,
-          settings_schema_id,
-        },
-      ],
-      language: language,
-    });
-  }
-
-  @Catch
-  @Send(200)
-  @DecodeAccessToken(verifyToken as Decoder)
   @ParseBody
   async PUT(req: IncomingMessage, res: ServerResponse, ctx: handler_context) {
     const title = req.params.title;
@@ -69,23 +46,6 @@ class Controller implements MicroController {
       ctx,
     });
   }
-
-  @Catch
-  @Send(200)
-  @DecodeAccessToken(verifyToken as Decoder)
-  @AcceptACL(["root_admin", "global_admin"])
-  async DELETE(
-    req: IncomingMessage,
-    res: ServerResponse,
-    ctx: handler_context
-  ) {
-    const title = req.params.title;
-    const language = req.query.language;
-    return settings_with_validation.delete_site_settings({
-      titles: [title],
-      language: language,
-    });
-  }
 }
 
-export = new Controller
+export = new Controller();

@@ -19,6 +19,13 @@ const AddBanners = (bannersPosition) => {
   };
 };
 
+const AddTemplate = (Template) => {
+  return {
+    type: 'ADDTemplate',
+    Template: Template
+  };
+};
+
 export {
   AddContacts,
   Addlayout,

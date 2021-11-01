@@ -1,0 +1,21 @@
+.attachment-item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid rgba(189, 189, 189, 0.5);
+    max-width: 1030px;
+    width: 100%;
+}
+
+.attachment-item .attachment-icon {
+    margin-right: 15px;
+    min-width: 30px;
+}
+
+.attachment-item .attachment-link {
+    font-family: "ProbaPro", sans-serif;
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+    line-height: 20px;
+}

@@ -17,6 +17,7 @@ import { postFile, delFile } from '../../services/file-api-services.js';
 import { getFileId } from '../../helpers/file-helpers.js';
 import SectionHeader from '../header/SectionHeader.jsx';
 import SettingsNameLogoTab from './SettingsNameLogoTab.jsx';
+import SettingsMainPageTab from './SettingsMainPageTab.jsx';
 import SettingsLayoutTab from './SettingsLayoutTab.jsx';
 import TabPanel from './TabPanel.jsx';
 import { Contacts } from './contacts.jsx';
@@ -26,7 +27,7 @@ import { Modal } from '@material-ui/core';
 import { filterProps } from '../../services/helpers.js';
 import { linkRegexp } from '../../constants/index.js';
 import { getBannersSettings } from '../../services/tab-api.js';
-
+ 
 export class MainSettings extends Component {
   constructor(props) {
     super(props);
@@ -182,7 +183,7 @@ export class MainSettings extends Component {
       metaGoogleSiteVerification.search(REGULAR_EXPRESSIONS.HTMLTag) === -1
     ) {
       toast.error(
-        this.props.translate('erorValidateMetaGoogleSiteVerification')
+        this.props.translate('errorValidateMetaGoogleSiteVerification')
       );
       return;
     }
@@ -405,7 +406,7 @@ export class MainSettings extends Component {
   };
 
   setHeaderLayout = ({ target }) => this.setState({ headerLayout: target.id });
-
+  
   setCurrentInputColor = (color) => {
     this.setState({ currentInputColor: color });
   };
@@ -519,15 +520,32 @@ export class MainSettings extends Component {
               onSelect={this.handleTabChange}
               className="tabTitle"
             >
-              <Tab title={this.props.translate('layoutTab')} eventKey={0} />
+              <Tab title={this.props.translate('mainPageTab')} eventKey={0} />
+
+              <Tab title={this.props.translate('layoutTab')} eventKey={1} />
               <Tab
                 title={this.props.translate('nameAndLogoTab')}
-                eventKey={1}
+                eventKey={2}
               />
-              <Tab title={this.props.translate('contacts')} eventKey={2} />
+              <Tab title={this.props.translate('contacts')} eventKey={3} />
             </Tabs>
             <TabPanel
               index={0}
+              currentTab={this.state.currentTab}
+              hasData={hasData}
+            >
+              <SettingsMainPageTab
+                translate={this.props.translate}
+                locationOfBanners={this.state.locationOfBanners}
+                handleChangeWidgetComposition={
+                  this.handleChangeWidgetComposition
+                }
+                handleChangeCheckDnD={this.handleChangeCheckDnD}
+                setInitialState={this.setInitialState}
+              />
+            </TabPanel>
+            <TabPanel
+              index={1}
               currentTab={this.state.currentTab}
               hasData={hasData}
             >
@@ -540,17 +558,11 @@ export class MainSettings extends Component {
                 setCurrentInputColor={this.setCurrentInputColor}
                 headerLayout={this.state.headerLayout}
                 setHeaderLayout={this.setHeaderLayout}
-                locationOfBanners={this.state.locationOfBanners}
-                handleChangeWidgetComposition={
-                  this.handleChangeWidgetComposition
-                }
-                handleChangeCheckDnD={this.handleChangeCheckDnD}
-                setInitialState={this.setInitialState}
               />
             </TabPanel>
 
             <TabPanel
-              index={1}
+              index={2}
               currentTab={this.state.currentTab}
               hasData={hasData}
             >
@@ -575,7 +587,7 @@ export class MainSettings extends Component {
             </TabPanel>
 
             <TabPanel
-              index={2}
+              index={3}
               currentTab={this.state.currentTab}
               hasData={hasData}
             >

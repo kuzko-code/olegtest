@@ -1,0 +1,40 @@
+.linkToAll {
+    display: flex;
+    justify-content: flex-end;
+    text-decoration-color: grey !important;
+    line-height: 1.2;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .linkToAll {
+      margin-top: 20px;
+    }
+  }
+     
+  @media screen and (max-width: 992px) {
+    .linkToAll {
+      margin-top: 10px;
+    }
+  }
+  
+  .linkToAll__title {
+    font-size: 17px;
+    font-weight: bold;
+    color: #717171;
+    margin-right: 12px;
+  }
+  
+  .linkToAll__iconWrapper {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid var(--theme-color);
+  }
+  
+  .linkToAll:hover .linkToAll__icon,
+  .linkToAll .linkToAll__icon {
+    position: relative;
+    top: -3px;
+    font-size: 22px;
+    color: var(--theme-color);
+  }

@@ -1,0 +1,77 @@
+.authModal__wrapper {
+  position: absolute;
+  width: 400px;
+  top: 3%;
+  left: calc(50% - 200px);
+  background-color: #fff;
+}
+
+.authModal__textBtn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.authModal__textBtn-colorGrey {
+  color: #727272;
+}
+
+.authModal__textBtn-colorBlue {
+  color: var(--theme-color);
+}
+
+.authModal__label {
+  font-size: 16px;
+  color: #727272;
+}
+
+.authModal__input {
+  border: 1px #929292 solid;
+  border-radius: 4px;
+}
+
+.authModal__inputCheckbox {
+  width: max-content;
+  margin-right: 10px;
+}
+
+.authModal__submitBtn {
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--theme-color);
+  color: #fff;
+  padding: 10px 4px;
+}
+
+.authModal__submitBtn:hover,
+.authModal__submitBtn:disabled {
+  background-color: var(--theme-lightcolor);
+  color: rgb(223, 223, 223);
+}
+
+.authModal__formErrorMessage {
+  font-size: 14px;
+  color: red;
+}
+
+.authModal__recoveryDescription {
+  max-width: 400px;
+}
+
+.authModal__captchaWrapper {
+  width: max-content;
+  margin: 0 auto;
+}
+
+@media (max-width: 400px) {
+  .authModal__wrapper {
+    width: 90%;
+    left: calc(50% - 170px);
+  }
+}
+
+.authModal__wrapper .MuiOutlinedInput-root:hover fieldset,
+.authModal__wrapper .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: var(--theme-color);
+}

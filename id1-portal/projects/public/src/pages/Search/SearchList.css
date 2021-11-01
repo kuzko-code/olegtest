@@ -1,0 +1,38 @@
+.search-list .search-category-title {
+    font-size: 20px;
+    line-height: 26px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: var(--theme-color);
+}
+
+.search-list .search-result-list {
+    list-style: none;
+    padding: 0;
+
+}
+
+.search-list .search-result-list>li {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search-list .search-result-list>li .counter {
+    padding-left: 8px;
+    min-width: 37px;
+}
+
+.search-list .search-result-list>li .search-result-title>a {
+    color: var(--theme-color);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.search-list .search-result-list>li .search-result-date {
+    margin: 0;
+}
+
+.search-list .search-result-list>li mark {
+    padding: 0;
+}

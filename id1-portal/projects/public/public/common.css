@@ -1,0 +1,211 @@
+:root {
+    height: 100%;
+
+    --theme-color: #304f80;
+
+    /* --body-background: url(../public/wavy-bg.jpg) repeat; */
+    --body-background: #dee4e7;
+    --content-background: #fff;
+
+    --content-max-width: 1300px;
+    --main-max-width: 1300px;
+
+    --content-font-family: "ProbaPro", "SourceSansPro";
+    --content-color: #1d1d1b;
+}
+
+body {
+    height: 100%;
+    font-size: 18px;
+    overflow: auto;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: var(--content-font-family);
+    color: var(--content-color);
+    background: var(--body-background);
+}
+
+body * {
+    box-sizing: border-box;
+    word-break: break-word;
+}
+
+body.disable_scroll {
+    overflow: hidden;
+}
+
+#root {
+    /* margin-right: calc(-1 * (100vw - 100%)); */
+    height: 100%;
+}
+
+#root-children-container {
+    max-width: var(--content-max-width);
+    background: var(--content-background);
+    min-height: 100%;
+    margin: 0 auto;
+}
+
+main {
+    max-width: var(--main-max-width);
+    width: 100%;
+    margin: 0 auto;
+    flex-grow: 1;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+small {
+    font-weight: 300;
+}
+
+.indent {
+    margin: 10px 20px 20px 20px;
+}
+
+@font-face {
+    font-family: "ProbaPro";
+    src: url("./assets/fonts/ProbaPro/ProbaPro-Bold.woff") format("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "ProbaPro";
+    src: url("./assets/fonts/ProbaPro/ProbaPro-Bold.woff") format("truetype");
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: "ProbaPro";
+    src: url("./assets/fonts/ProbaPro/ProbaPro-Regular.woff") format("truetype");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "ProbaPro";
+    src: url("./assets/fonts/ProbaPro/ProbaPro-Medium.woff") format("truetype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "SourceSansPro";
+    src: url("./assets/fonts/SourceSansPro/SourceSansPro-Bold.otf") format("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "SourceSansPro";
+    src: url("./assets/fonts/SourceSansPro/SourceSansPro-Regular.otf") format("truetype");
+    font-weight: 300;
+}
+
+
+
+/* @font-face {
+    font-family: "ProbaProBold";
+    src: url("./assets/fonts/ProbaPro/ProbaPro-Bold.woff") format("truetype");
+} */
+/* 
+@font-face {
+    font-family: "SourceSansProBold";
+    src: url("./assets/fonts/SourceSansPro/SourceSansPro-Bold.otf") format("truetype");
+} */
+
+/* @font-face {
+    font-family: "ProbaProRegular";
+    src: url("./assets/fonts/ProbaPro/ProbaPro-Regular.woff") format("truetype");
+} */
+/* 
+@font-face {
+    font-family: "SourceSansPro";
+    src: url("./assets/fonts/SourceSansPro/SourceSansPro-Regular.otf") format("truetype");
+} */
+
+/* @font-face {
+    font-family: "ProbaPro-SemiBold";
+    src: url("./assets/fonts/ProbaPro/ProbaPro-Medium.woff") format("truetype");
+} */
+
+
+/* 
+
+a,
+a:hover,
+a:focus,
+a:active,
+a:visited {
+    text-decoration: none;
+    outline: none;
+}
+
+a {
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -ms-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+
+input,
+button,
+optgroup,
+select,
+textarea {
+    outline: 0 !important;
+}
+
+input:focus,
+input:active,
+input:hover,
+input:visited,
+button:focus,
+button:active,
+button:hover,
+button:visited,
+optgroup:focus,
+optgroup:active,
+optgroup:hover,
+optgroup:visited,
+select:focus,
+select:active,
+select:hover,
+select:visited,
+textarea:focus,
+textarea:active,
+textarea:hover,
+textarea:visited {
+    outline: 0 !important;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.visible {
+    visibility: visible !important;
+}
+
+.invisible {
+    visibility: hidden !important;
+}
+
+.unstyled {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix {
+    clear: both;
+    float: none;
+}
+
+.hidden {
+    display: none;
+} */

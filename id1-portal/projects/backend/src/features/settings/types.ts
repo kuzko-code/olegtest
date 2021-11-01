@@ -20,7 +20,7 @@ export type get_settings_by_title_payload = {
   language: string;
 };
 
-export type create_settings_payload = {
+export type get_setting_schema_by_id_payload = {
   settings: {
     title: string;
     settings_object: any;
@@ -35,4 +35,9 @@ export type update_settings_payload = {
     settings_object: any;
   }[];
   language: string;
+};
+
+export type get_general_settings_payload = {
+  language: string;
+  mode: string;
 };

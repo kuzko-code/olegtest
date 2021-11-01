@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classList from 'classlist';
 import { withTranslate } from 'react-redux-multilingual';
-import { logout } from '../../../services/index.js';
+import { logout, getPortalSize } from '../../../services/index.js';
 import Select from 'react-select';
 import TranslateTwoToneIcon from '@material-ui/icons/TranslateTwoTone';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getLastNewMessages, setReadMessages } from '../../../services/messages-api-services.js';
 
+
 export class Header extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +20,8 @@ export class Header extends Component {
       languages: [],
       language: {},
       loading: true,
-      messages: []
+      messages: [],
+      portalSize: null,
     };
   }
 
@@ -32,15 +34,22 @@ export class Header extends Component {
   }
 
   componentDidMount() {
-    getLastNewMessages(5)
-      .then(res => {
-        if (res && res.length > 0) {
-          this.setState({ messages: res });
-        } else {
-          if (this.state.messages.length != 0)
-            this.setState({ messages: [] });
-        }
-      })
+    Promise.all([getLastNewMessages(5), getPortalSize()]).then(res => {
+      let messages = []
+      if (res[0] && res[0].length > 0) {
+        messages = res[0]
+      } else {
+        if (this.state.messages.length != 0)
+          messages = []
+      }
+      let portalSize = null
+      if (res[1].error_message === null)
+        portalSize = res[1].data.size
+      this.setState({
+        messages: messages,
+        portalSize: portalSize
+      });
+    })
   }
 
   handleChangeLanguage = (selectedOption) => {
@@ -63,7 +72,7 @@ export class Header extends Component {
 
   render() {
     const { translate, Languages, Intl } = this.props;
-    const { messages } = this.state;
+    const { messages, portalSize } = this.state;
     var language = Languages.filter((lang) => {
       if (lang.value === Intl.locale) return lang;
     });
@@ -89,6 +98,12 @@ export class Header extends Component {
                     </a>
                   </div>
                 </div>
+                {portalSize &&
+                  <div className="pt-3 mt-1 pr-4 row">
+                    <h7 className="d-none d-md-block">{translate("portalSize")}</h7>
+                    <h7 className="text-success pl-1">{portalSize}</h7>
+                  </div>
+                }
                 <div>
                   <ul className="nav navbarTopLinks navbar-right">
                     <li className="dropdown mb-0">

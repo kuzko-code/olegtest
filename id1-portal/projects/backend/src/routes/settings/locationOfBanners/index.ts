@@ -14,6 +14,7 @@ import { tabs_with_validation } from "../../../domains/tabs";
 
 class Controller implements MicroController {
   path = "/settings/locationOfBanners";
+  priority = 1;
 
   @Catch
   @Send(200)

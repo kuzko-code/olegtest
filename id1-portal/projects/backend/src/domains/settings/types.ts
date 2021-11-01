@@ -14,15 +14,6 @@ export type get_settings_by_title_payload = {
   language: string;
 };
 
-export type create_settings_payload = {
-  settings: {
-    title: string;
-    settings_object: any;
-    settings_schema_id: number;
-  }[];
-  language: string;
-};
-
 export type update_settings_payload = {
   settings: {
     title: string;
@@ -30,4 +21,9 @@ export type update_settings_payload = {
   }[];
   language: string;
   ctx: handler_context;
+};
+
+export type get_general_settings_payload = {
+  language: string;
+  mode: string;
 };

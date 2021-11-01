@@ -14,7 +14,7 @@
 }
 
 .page-pagination .MuiPagination-root .MuiPagination-ul .Mui-selected:hover {
-    background-color: var(--theme-lightcolor);
+    opacity: 0.8;
     color: #FFFFFF;
 }
 

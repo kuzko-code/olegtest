@@ -13,7 +13,7 @@ import FileView from '../common/fileView.jsx';
 //helpers
 import { getFileId, getFileName } from '../../helpers/file-helpers.js';
 //services
-import { delFile, postFile } from '../../services/file-api-services.js';
+import { delFile, postFile, delDocument, postDocument, updateDocument } from '../../services/file-api-services.js';
 import { getNewsById, putNews, postNews } from '../../services/news-api-services.js';
 import { getRubrics } from '../../services/rubric-api-services.js';
 import { getTags } from '../../services/tag-api-services.js';
@@ -30,6 +30,7 @@ import HtmlEditor from '../common/HtmlEditor.jsx';
 import 'cropperjs/dist/cropper.css';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import InfoIcon from '@material-ui/icons/Info';
+import CreatableInputOnly from '../common/CreatableInputOnly.jsx';
 const ASPECT_RATIO = 4 / 3;
 
 const customStyles = {
@@ -49,8 +50,18 @@ export class NewsForm extends Component {
     super(props);
     this.cropperRef = React.createRef();
     this.state = {
+      methodForModal: null,
+      newFile: {
+        id: null,
+        name: null,
+        extention: null,
+        data: null,
+        tags: [],
+      },
+      showEditFileModal: false,
       toastId: null,
       filess: [],
+      editedFiles: [],
       filesToDelete: [],
       pictures: null,
       picturesUrl: null,
@@ -101,7 +112,7 @@ export class NewsForm extends Component {
 
     this.state.filess.forEach((file) => {
       if (!file.isSaved) {
-        delFile(file.id);
+        delDocument(file.id);
       }
     });
 
@@ -265,6 +276,7 @@ export class NewsForm extends Component {
       pictures,
       picturesUrl,
       picturesUrlDelete,
+      editedFiles,
     } = this.state;
 
     const date = this.state.autoPublishDate
@@ -275,7 +287,6 @@ export class NewsForm extends Component {
       toast.error(this.props.translate('minLengthNewsName'));
       return;
     }
-
     if (pictures === null && picturesUrl === null) {
       toast.error(this.props.translate('notAddedNewsImageAlert'));
       return;
@@ -289,10 +300,17 @@ export class NewsForm extends Component {
       delFile(getFileId(picturesUrlDelete));
     }
 
+    editedFiles.forEach(item => {
+      updateDocument(item.id, item.storage_key, item.content).then(res => {
+      }).catch(err => {
+        console.error(err)
+        toast.error(this.props.translate("updateDocumentError"))
+        return;
+      })
+    })
     const newsJson = JSON.stringify({
       id,
       title: titleTrimmed,
-      main_picture: '',
       content: parseEditorImagesHeightDelete(editorValue),
       rubric_id:
         rubric[0] !== undefined
@@ -302,12 +320,12 @@ export class NewsForm extends Component {
       is_published: checked,
       description: smallTextTrimmed,
       facebook_enable: facebook_enable,
-      images: galleryFiless.map((file) => file.source_url),
+      images: galleryFiless.map((file) => file.id),
       attachments: filess.map((file) => ({
         id: file.id,
         is_active: file.is_active,
       })),
-      main_picture: picturesUrl !== null ? picturesUrl : pictures,
+      main_picture:getFileId(pictures)!==""?getFileId(pictures):getFileId(picturesUrl),
       language,
       published_date: date?.toISOString() || null,
     });
@@ -352,6 +370,9 @@ export class NewsForm extends Component {
   };
 
   handleChangeTag = (selectedOption) => {
+    if(selectedOption==null)
+    selectedOption=[]
+    
     this.setState({ tag: selectedOption });
   };
 
@@ -493,7 +514,6 @@ export class NewsForm extends Component {
       cropperImage.getCroppedCanvas().toDataURL(),
       `${this.state.cropper.name}.png`
     );
-
     postFile(fileToUpload).then((res) => {
       this.setState({
         pictures: res.data.source_url,
@@ -541,29 +561,123 @@ export class NewsForm extends Component {
   };
 
   onDropFiles = (files) => {
-    this.setState({ displayFile: true });
-    let masfiles = [];
-    let { filess, picturesUrl } = this.state;
 
-    files.map((file) => {
-      if (file.name.split('.')[0].length > 100) {
-        toast.error(this.props.translate('fileNameIsTooLong'));
-        return;
+    let index = files[0].name.lastIndexOf('.');
+    this.setState({
+      showEditFileModal: true,
+      methodForModal: "POST",
+      newFile: {
+        ...this.state.newFile,
+        name: files[0].name.substring(0, index),
+        data: files[0],
+        extention: files[0].name.substring(index, files[0].name.length),
       }
-      masfiles.push(postFile(file));
-    });
-    Promise.all(masfiles).then((resonses) => {
-      resonses.map((res) => {
-        filess.push({ ...res.data, is_active: true, isSaved: false });
-      });
-      this.setState({ filess, displayFile: false });
-    });
+    })
   };
+
+  handleSubmitModalPost = async (event) => {
+    event.preventDefault();
+
+    let { newFile, filess } = this.state;
+    this.setState({
+      displayFile: true,
+      showEditFileModal: false,
+      newFile: {
+        id: null,
+        name: null,
+        data: null,
+        tags: [],
+        extention: null,
+      }
+    });
+    await postDocument(newFile.data, newFile.name + newFile.extention, newFile.tags).then(res => {
+      filess.push({ ...res.data, is_active: true, saved: false });
+      this.setState({ filess: filess, displayFile: false })
+    }).catch(err => {
+      console.error(err)
+      this.props.toast.error(this.props.translate("unexpectedErrorOccurred"))
+    })
+  }
+  handleSubmitModalPut = async (event) => {
+    event.preventDefault()
+
+    const { newFile, filess, editedFiles } = this.state
+    let editedFile = editedFiles.find(item => item.id == newFile.id)
+
+    filess[filess.indexOf(filess.find(item => item.id == newFile.id))] = {
+      ...filess[filess.indexOf(filess.find(item => item.id == newFile.id))],
+      storage_key: newFile.name + newFile.extention,
+      content: newFile.tags
+    }
+
+    if (editedFile) {
+      editedFiles[editedFiles.indexOf(editedFile)] = {
+        ...editedFile,
+        storage_key: newFile.name + newFile.extention,
+        content: newFile.tags
+      }
+    } else {
+      editedFiles.push({
+        id: newFile.id,
+        storage_key: newFile.name + newFile.extention,
+        content: newFile.tags
+      })
+    }
+
+    this.setState({
+      showEditFileModal: false,
+      newFile: {
+        id: null,
+        name: null,
+        data: null,
+        tags: [],
+        extention: null,
+      },
+      filess: filess,
+      editedFiles: editedFiles
+    })
+  }
+  onClickEdit = (file) => {
+    let index = file.storage_key.lastIndexOf('.');
+    this.setState({
+      methodForModal: "PUT",
+      showEditFileModal: true,
+      newFile: {
+        id: file.id,
+        name: file.storage_key.substring(0, index),
+        extention: file.storage_key.substring(index, file.storage_key.length),
+        tags: file.content ? file.content : [],
+      }
+    })
+  }
+
+  validateFileName(newFile) {
+    const { translate } = this.props
+    if (newFile.name != null) {
+      if ((newFile.name.length + newFile.extention.length) >= 100) {
+        return {
+          wrongFileName: true,
+          wrongFileNameMessage: translate("fileNameIsTooLong")
+        }
+      } else if (newFile.name.length == 0) {
+        return {
+          wrongFileName: true,
+          wrongFileNameMessage: translate("shouldBeString")
+        }
+      }
+    }
+    return {
+      wrongFileName: false,
+      wrongFileNameMessage: null
+    }
+  }
 
   render() {
     const { redirect } = this.state;
     const { translate } = this.props;
     const {
+      methodForModal,
+      newFile,
       loading,
       error,
       rubrics,
@@ -600,10 +714,21 @@ export class NewsForm extends Component {
       this.setState({ redirect: false });
       return <Redirect push to={`/`} />;
     }
+
+    const fileNameValidation = this.validateFileName({ name: newFile.name, extention: newFile.extention })
+
+    let onSubmitModal = null
+    if (methodForModal == "POST") {
+      onSubmitModal = this.handleSubmitModalPost
+    } else if (methodForModal == "PUT") {
+      onSubmitModal = this.handleSubmitModalPut
+    }
     const files = this.state.filess.map((file) => (
       <FileView
         key={file.id}
         file={file}
+        enableEdit={true}
+        onEdit={this.onClickEdit}
         onClickDeleteFile={this.onClickDeleteFile}
         onShowFileName={this.onShowFileName}
       />
@@ -621,7 +746,6 @@ export class NewsForm extends Component {
           />
         ))
       );
-
     const currentState = {
       title,
       galleryFiless,
@@ -635,13 +759,118 @@ export class NewsForm extends Component {
       checked,
       autoPublishDate,
     };
-
     const submitDisable =
       this.props.match.params.id !== 0 &&
       initialState === JSON.stringify(currentState);
-
+    let disableHeader = false;
+    if (submitDisable == true || displayFile === true || displayGalleryFiles == true) {
+      disableHeader = true;
+    }
     return (
       <React.Fragment>
+        <Modal
+          show={this.state.showEditFileModal}
+          onExited={() => this.setState({
+            showEditFileModal: false,
+            methodForModal: null,
+            newFile: {
+              id: null,
+              name: null,
+              data: null,
+              tags: [],
+              extention: null,
+            }
+          })}
+          onHide={() => this.setState({
+            showEditFileModal: false,
+            methodForModal: null,
+            newFile: {
+              id: null,
+              name: null,
+              data: null,
+              tags: [],
+              extention: null,
+            }
+          })}
+          dialogClassName="modal-90w"
+          centered={true}
+          size='lg'
+          scrollable={true}>
+          <Modal.Header closeButton>
+            <h3>{translate("documentSettingsTitle")}</h3>
+          </Modal.Header>
+          <Modal.Body bsPrefix="overflow-auto">
+            <div className="col-lg-12">
+              <form autoComplete="off" className="card-body" role="form">
+                <div className="form-group pr-4 ">
+                  <label className="font-weight-600 mb-2 col-form-label">
+                    {translate("title")}
+                  </label>
+                  <div>
+                    <input
+                      id="fileName"
+                      type="text"
+                      autoComplete="off"
+                      className="form-control rounded shadow-none"
+                      onChange={(data) => {
+                        this.setState({
+                          newFile: {
+                            ...newFile,
+                            name: data.target.value,
+                          }
+                        })
+                      }}
+                      value={newFile.name ? newFile.name : ""}
+                    />
+                  </div>
+                  {fileNameValidation.wrongFileName &&
+                    <span className="adminValidSpan">{fileNameValidation.wrongFileNameMessage}</span>
+                  }
+                </div>
+                <div className="form-group pr-4">
+                  <label className="font-weight-600 mb-2 col-form-label">
+                    {translate("keywords")}
+                  </label>
+                  <div>
+                    <CreatableInputOnly styles={customStyles} tags={newFile.tags} onTagsChange={(value) => {
+                      this.setState({
+                        newFile: {
+                          ...newFile,
+                          tags: value
+                        }
+                      })
+                    }} />
+                  </div>
+                </div>
+                <div style={{ textAlign: 'right' }}>
+                  <button
+                    disabled={fileNameValidation.wrongFileName}
+                    onClick={onSubmitModal}
+                    className="btn btn-mint-green col-xs-12 mt-3 mr-2"
+                  >
+                    {translate('save')}
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-outline-secondary col-xs-12 mt-3"
+                    onClick={() => this.setState({
+                      showEditFileModal: false,
+                      methodForModal: null,
+                      newFile: {
+                        name: null,
+                        data: null,
+                        tags: [],
+                        extention: null,
+                      }
+                    })}
+                  >
+                    {translate('close')}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </Modal.Body>
+        </Modal>
         <Modal onHide={this.onCloseCrop} show={cropper.isActive} size="lg">
           <Modal.Body>
             <div>
@@ -690,7 +919,7 @@ export class NewsForm extends Component {
               }
               isCancelSubmitShown={true}
               handleSubmit={this.handleSubmit}
-              submitDisable={submitDisable}
+              submitDisable={disableHeader}
               checkboxChecked={this.state.checked}
               isCheckboxDisabled={this.state.isCheckboxDisabled}
               onCheckboxChange={this.handleChangeCheckBox('checked')}
@@ -880,13 +1109,13 @@ export class NewsForm extends Component {
                           className="pageElementBoxContent"
                           style={{ display: 'block' }}
                         >
-                          <Dropzone onDrop={this.onDropFiles} multiple>
+                          <Dropzone onDrop={this.onDropFiles} multiple={false}>
                             {({ getRootProps, getInputProps }) => (
                               <section className="container">
                                 <div
                                   {...getRootProps({ className: 'dropzone' })}
                                 >
-                                  <input {...getInputProps()} multiple />
+                                  <input {...getInputProps()} />
                                   <br />
                                   <br />
                                   <h2 className="text-center m-t-5">
@@ -934,10 +1163,10 @@ export class NewsForm extends Component {
                     />
                     <div className="pageElementBox border-bottom">
                       <div className="pageElementBoxTitle d-flex justify-content-between pr-4">
-                        <h5>{translate("facebook_commentsEnableOnNewsPage")}                        
-                        <OverlayTrigger overlay={<Tooltip>{translate('facebookPlugin_Tooltip')}</Tooltip>}>
-                          <InfoIcon fontSize="small" />
-                        </OverlayTrigger>
+                        <h5>{translate("facebook_commentsEnableOnNewsPage")}
+                          <OverlayTrigger overlay={<Tooltip>{translate('facebookPlugin_Tooltip')}</Tooltip>}>
+                            <InfoIcon fontSize="small" />
+                          </OverlayTrigger>
                         </h5>
 
                         <Form.Check

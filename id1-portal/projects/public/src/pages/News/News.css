@@ -1,0 +1,125 @@
+:root {
+  --news-page-color: var(--theme-color);
+  --news-page-secondary-color: #a3a3a3;
+}
+
+.news-page {
+  margin: 10px 20px 20px 20px;
+}
+
+.news-content .news-title {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 40px;
+}
+
+.news-content .news-date {
+  margin: 7px 0;
+  padding: 3px 0;
+  font-size: 16px;
+  color: var(--news-page-secondary-color);
+  text-align: center;
+}
+
+.news-content .entry-content {
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.news-content .entry-content ol {
+  list-style: inside decimal;
+}
+.news-content .entry-content ul {
+  list-style: inside disc;
+}
+
+.news-content .news-tags {
+  display: flow-root;
+  margin: 20px 0;
+}
+
+.news-content .news-tags .news-tags-title,
+.news-content .news-share .news-share-title {
+  font-size: 0.875rem;
+  line-height: 150%;
+  font-weight: 600;
+  color: #959595;
+  margin-bottom: 0.625rem;
+}
+
+/* 
+.news-content .news-share {
+  width: 50%;
+}
+
+.news-content .news-share .news-share-buttons {
+  display: flex;
+  justify-content: space-between;
+  max-width: 120px;
+}
+
+.news-content .news-share .news-share-buttons>* {
+  cursor: pointer;
+} */
+
+.news-content .print-button {
+  background-color: #ffffff00;
+  border: none;
+  font-weight: 600;
+  color: #777;
+}
+
+.news-content .news-navigation {
+  margin: 20px 0;
+  display: block;
+
+}
+
+.news-content .news-navigation a {
+  color: #777;
+  font-size: 14px;
+}
+
+.news-content .news-navigation h3 {
+  color: var(--news-page-color);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.news-content .news-navigation .news-previous,
+.news-content .news-navigation .news-next {
+  width: 50%;
+  display: table-cell;
+  position: relative;
+  vertical-align: middle;
+}
+
+.news-content .news-navigation .news-previous {
+  text-align: left;
+  float: left;
+  padding: 0 40px 0 0;
+}
+
+.news-content .news-navigation .news-next {
+  text-align: right;
+  float: left;
+  border-left: 1px solid #e7e7e7;
+  padding: 0 0 0 40px;
+}
+
+.news-content * {
+  max-width: 100%;
+}
+
+.news-content table {
+  width: 100%;
+}
+
+.news-content table:not([border='0']) td,
+.news-content table:not([border='0']) th {
+  border: 1px solid #e1e1e1;
+  padding: 0.4em;
+  background-clip: padding-box;
+}

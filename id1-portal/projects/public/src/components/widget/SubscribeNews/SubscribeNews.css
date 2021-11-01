@@ -1,0 +1,218 @@
+
+.ts-newsletter {
+    background-color: #f1f1f1;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    padding: 10px 20px;
+    max-width: 500px;
+  }
+  
+  .newsletter-form input[type="email"] {
+    font-size: 14px !important;
+    border-radius: 0px;
+  }
+  
+  .button-digital {
+    background-color: var(--theme-color);
+    border: none;
+    color: #fff;
+  }
+  
+  .button-digital:disabled,
+  .button-digital:hover {
+    background: linear-gradient(rgba(255,255,255, 0.2), rgba(255, 255, 255, 0.2)) no-repeat,
+                linear-gradient(var(--theme-color), var(--theme-color)) no-repeat;
+  }
+  
+  .form-control:focus {
+    border-color: var(--theme-color);
+    box-shadow: 0 0 0 0.1rem var(--theme-color);
+  }
+  
+  .newsletter-introtext {
+    padding-right: 5px;
+  }
+  
+  .newsletter-form button {
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 15px;
+    padding: 8px 25px;
+  }
+  
+  .newsletter-form {
+    min-height: 135px;
+    width: 100%;
+    text-align: end;
+  }
+  
+  .subscribeNews__successMessageWrapper {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .subscribeNews__form {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .ts-newsletter .sa {
+    width: 140px;
+    height: 140px;
+    padding: 26px;
+    background-color: #fff0;
+  }
+  
+  .ts-newsletter .sa-success {
+    border-radius: 50%;
+    border: 4px solid #a5dc86;
+    box-sizing: content-box;
+    height: 80px;
+    padding: 0;
+    position: relative;
+    background-color: #fff0;
+    width: 80px;
+  }
+  
+  .ts-newsletter .sa-success:after,
+  .sa-success:before {
+    background: #fff0;
+    content: "";
+    height: 120px;
+    position: absolute;
+    transform: rotate(45deg);
+    width: 60px;
+  }
+  
+  .ts-newsletter .sa-success:before {
+    border-radius: 40px 0 0 40px;
+    width: 26px;
+    height: 80px;
+    top: -17px;
+    left: 5px;
+    transform-origin: 60px 60px;
+    transform: rotate(-45deg);
+  }
+  
+  .ts-newsletter .sa-success:after {
+    border-radius: 0 120px 120px 0;
+    left: 30px;
+    top: -11px;
+    transform-origin: 0 60px;
+    transform: rotate(-45deg);
+    animation: rotatePlaceholder 4.25s ease-in;
+  }
+  
+  .ts-newsletter .sa-success-placeholder {
+    border-radius: 50%;
+    border: 4px solid rgba(165, 220, 134, 0.25);
+    box-sizing: content-box;
+    height: 80px;
+    left: -4px;
+    position: absolute;
+    top: -4px;
+    width: 80px;
+    z-index: 2;
+  }
+  
+  .ts-newsletter .sa-success-fix {
+    background-color: #fff0;
+    height: 90px;
+    left: 28px;
+    position: absolute;
+    top: 8px;
+    transform: rotate(-45deg);
+    width: 5px;
+    z-index: 1;
+  }
+  
+  .ts-newsletter .sa-success-tip,
+  .ts-newsletter .sa-success-long {
+    background-color: #a5dc86;
+    border-radius: 2px;
+    height: 5px;
+    position: absolute;
+    z-index: 2;
+  }
+  
+  .ts-newsletter .sa-success-tip {
+    left: 14px;
+    top: 46px;
+    transform: rotate(45deg);
+    width: 25px;
+    animation: animateSuccessTip 0.75s;
+  }
+  
+  .ts-newsletter .sa-success-long {
+    right: 8px;
+    top: 38px;
+    transform: rotate(-45deg);
+    width: 47px;
+    animation: animateSuccessLong 0.75s;
+  }
+  
+  @keyframes animateSuccessTip {
+  
+    0%,
+    54% {
+        width: 0;
+        left: 1px;
+        top: 19px;
+    }
+  
+    70% {
+        width: 50px;
+        left: -8px;
+        top: 37px;
+    }
+  
+    84% {
+        width: 17px;
+        left: 21px;
+        top: 48px;
+    }
+  
+    100% {
+        width: 25px;
+        left: 14px;
+        top: 45px;
+    }
+  }
+  
+  @keyframes animateSuccessLong {
+  
+    0%,
+    65% {
+        width: 0;
+        right: 46px;
+        top: 54px;
+    }
+  
+    84% {
+        width: 55px;
+        right: 0;
+        top: 35px;
+    }
+  
+    100% {
+        width: 47px;
+        right: 8px;
+        top: 38px;
+    }
+  }
+  
+  @keyframes rotatePlaceholder {
+  
+    0%,
+    5% {
+        transform: rotate(-45deg);
+    }
+  
+    100%,
+    12% {
+        transform: rotate(-405deg);
+    }
+  }

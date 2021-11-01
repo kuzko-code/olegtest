@@ -13,7 +13,6 @@ import {
   update_position_tabs_payload,
   get_preview_tabs_payload,
 } from "./types";
-import Ajv from "ajv";
 import { Helper } from "../../helper";
 import { PluginsInfo } from "../pluginsInfo";
 

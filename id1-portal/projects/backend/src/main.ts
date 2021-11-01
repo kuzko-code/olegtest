@@ -68,7 +68,7 @@ async function main() {
   schedule.scheduleJob("3 17 * * */5", async function () {
     await NewsSubscriptions.sendNewsMessageMail("EveryWeek");
   });
-  schedule.scheduleJob("5 * 1 */1 *", async function () {
+  schedule.scheduleJob("5 17 1 */1 *", async function () {
     await NewsSubscriptions.sendNewsMessageMail("EveryMonth");
   });
 

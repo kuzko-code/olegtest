@@ -93,21 +93,21 @@ class Api {
         cwd: path.join(this._pathToProject, "plugin-tools"),
       });
 
-    console.log(pluginToolsIStdout);
-    console.log(pluginToolsIStderr);
+    console.log(JSON.stringify(pluginToolsIStdout));
+    console.log(JSON.stringify(pluginToolsIStderr));
 
     const { pluginToolsInstallGStdout, stderr2: pluginToolsInstallGStderr2 } =
       await await execShellCommand("npm install -g", {
         cwd: path.join(this._pathToProject, "plugin-tools"),
       });
 
-    console.log(pluginToolsInstallGStdout);
-    console.log(pluginToolsInstallGStderr2);
+    console.log(JSON.stringify(pluginToolsInstallGStdout));
+    console.log(JSON.stringify(pluginToolsInstallGStderr2));
 
     const command = `OGP portal_update ${this._pathToProject}`;
     const { stdout, stderr } = await execShellCommand(command);
-    console.log(stdout);
-    console.log(stderr);
+    console.log(JSON.stringify(stdout));
+    console.log(JSON.stringify(stderr));
     return await this.setSettingsAfterUpdatePortal(
       OGPMarketUrl,
       currentVersion,
@@ -118,8 +118,7 @@ class Api {
   private async validateVersion(
     OGPMarketUrl: string,
     currentVersion: string,
-    version: string,
-    client = db
+    version: string
   ) {
     try {
       return await apiServices

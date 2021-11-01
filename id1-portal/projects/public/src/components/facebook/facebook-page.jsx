@@ -4,7 +4,7 @@ import { withTranslate } from 'react-redux-multilingual';
 import { useSelector } from 'react-redux';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import TabHeader from '../main/tabHeader.jsx'
+import { TabHeader } from '../ReExportComponents.js'
 
 const FacebookPage = (props) => {
     const settings = useSelector((state) => state.reducerSettings.Contacts.socialMedia.facebookSettings);

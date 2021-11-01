@@ -1,0 +1,466 @@
+
+
+body.lowvision .header-bg .header_content .header_logo {
+    filter: grayscale(100%);
+}
+
+
+
+body.lowvision .actions li span {
+    font-size: 100% !important;
+}
+
+
+
+
+@media (max-width: 991px) {
+    body.lowvision .header-bg .menu ul li.showSubmenu>div>a:after {
+        content: "";
+        background-image: url("../../../../../public/assets/images/svg-icon/subMenu_black_arrow.svg") !important;
+        width: 24px;
+        padding-left: 50px;
+        display: inline-block;
+        height: 20px;
+        transform: none;
+        background-position: center;
+        vertical-align: middle;
+        transition: 0.2s ease-in-out;
+    }
+}
+
+body.lowvision .header-bg .menu ul li a {
+    color: rgb(0, 0, 0) !important;
+    font-size: 100%;
+    /* font-family: "ProbaPro-SemiBold" !important; */
+    font-weight: 500;
+    text-decoration: none !important;
+    line-height: 20px !important;
+}
+
+@media (max-width: 991px) {
+
+    body.lowvision .header-bg .menu-toggle>span {
+        background-color: black !important;
+    }
+}
+
+/* use */
+@media print {
+
+    body.lowvision .wrapper,
+    body.lowvision * {
+        border: none !important;
+    }
+
+    body.lowvision .wrapper {
+        border-right: none !important;
+        border-left: none !important;
+    }
+}
+
+
+body.lowvision {
+    background-color: #fff;
+    filter: grayscale(100%);
+}
+
+body.lowvision .post-content-area *,
+body.lowvision .post-title-area * {
+    font-size: 100% !important;
+}
+
+body.lowvision .post-title-area a.post-cat {
+    /*Rubric Button*/
+    line-height: 100%;
+    height: auto;
+}
+
+body.lowvision [class^="post"] * {
+    font-size: 100% !important;
+}
+
+body.lowvision.ie img {
+    display: none;
+}
+
+
+body.lowvision.ie header .header_content .header_headline.center:before,
+body.lowvision.ie .detail_link:after,
+body.lowvision.ie .content_slider_wrapper .content_slider .slide,
+body.lowvision.ie .content_slider_wrapper .content_slider_nav .slide,
+body.lowvision.ie .mfp-image-holder .mfp-content img.mfp-img,
+body.lowvision.ie .mediagallery_wrapper .mediagallery__list .item .preview,
+body.lowvision.ie .mediagallery_wrapper .photo_item .js_popup,
+body.lowvision.ie .mfp-container,
+body.lowvision.ie header .header_content .header_headline.center:before *,
+body.lowvision.ie .detail_link:after *,
+body.lowvision.ie .content_slider_wrapper .content_slider .slide *,
+body.lowvision.ie .content_slider_wrapper .content_slider_nav .slide *,
+body.lowvision.ie .content_navigation .prev:before *,
+body.lowvision.ie .content_navigation .next:after *,
+body.lowvision.ie .mfp-image-holder .mfp-content img.mfp-img *,
+body.lowvision.ie .mediagallery_wrapper .mediagallery__list .item .preview *,
+body.lowvision.ie .mediagallery_wrapper .photo_item .js_popup *,
+body.lowvision.ie .mfp-container * {
+    background-image: none !important;
+    background-color: #e9e9e9 !important;
+}
+
+body.lowvision.ie .header_headline.center:before {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgNDAwIj48cGF0aCBkPSJNMTIwIDBjLTkuMyAxMC42LTE1IDI0LjQtMTUgMzkuNi42IDMzLjQgNC42IDY2LjcgNSAxMDAgLjcgMzEuMS04LjYgNjAuMy0xOS45IDg4LjgtMy44IDcuOS03LjkgMTUuNi0xMiAyMy4zbC0xMi0yLjRjLTEwLjgtMi4yLTE3LjktMTIuNy0xNS43LTIzLjUgMS45LTkuNSAxMC4yLTE2LjEgMTkuNS0xNi4xbDQuNC41LTkuOC04MS42Yy0zLjItMzYuNC0yMS45LTY4LjMtNDkuNS04OS00LjctMy42LTkuOC02LjgtMTUtOS43djI4OS43aDY2LjljNSAyNy4xIDE5LjkgNTAuOCA0MC45IDY3IDUgMy40IDkuMiA4IDEyLjIgMTMuMyAzLTUuMyA3LjItOS44IDEyLjItMTMuMyAyMS0xNi4yIDM1LjktMzkuOSA0MC45LTY3SDI0MFYyOS45Yy01LjIgMi45LTEwLjMgNi4xLTE1IDkuNy0yNy42IDIwLjctNDYuMyA1Mi42LTQ5LjUgODguOWwtOS44IDgxLjYgNC40LS41YzkuMyAwIDE3LjYgNi42IDE5LjUgMTYuMSAyLjIgMTAuOC00LjkgMjEuNC0xNS43IDIzLjVsLTEyIDIuNGMtNC4xLTcuNy04LjItMTUuNC0xMi0yMy4zLTExLjMtMjguNS0yMC43LTU3LjctMTkuOS04OC44LjQtMzMuNCA0LjQtNjYuNyA1LTEwMCAwLTE1LjEtNS43LTI4LjktMTUtMzkuNXpNMjAgNzEuN2MxMi45IDE1LjIgMjEuNiAzNC4xIDI0LjIgNTQuOWw4IDY3LjNjLTEwLjIgNS4xLTE4IDE0LjUtMjAuOSAyNS44SDIwdi0xNDh6bTIwMCAwdjE0OGgtMTEuM2MtMi45LTExLjMtMTAuNy0yMC43LTIwLjktMjUuOGw4LTY3LjNjMi42LTIwLjggMTEuMy0zOS44IDI0LjItNTQuOXpNMTIwIDIwNi45YzUuNCAxNy42IDEyLjggMzQuMyAyMiA0OS44LTguNyAyLjctMTYuMyA3LjgtMjIgMTQuOC01LjYtNi45LTEzLjItMTIuMS0yMi0xNC44IDkuMi0xNS41IDE2LjYtMzIuMiAyMi00OS44ek0yMCAyMzkuN2gxMS4zYzMuNiAxMy44IDE0LjMgMjQuNyAyOCAyOC41bDkuNiAyLjJjLTIuNiA5LjMtNCAxOS4yLTQgMjkuM0gyMHYtNjB6bTE4OC43IDBIMjIwdjYwaC00NWMwLTEwLjEtMS40LTIwLTQtMjkuM2w5LjYtMi4yYzEzLjctMy44IDI0LjUtMTQuNyAyOC4xLTI4LjV6TTg4LjUgMjc1YzEyLjEgMS43IDIxLjUgMTIuMSAyMS41IDI0LjdIODVjMC04LjYgMS4zLTE2LjkgMy41LTI0Ljd6bTYzIDBjMi4yIDcuOSAzLjUgMTYuMSAzLjUgMjQuN2gtMjVjMC0xMi42IDkuNC0yMyAyMS41LTI0Ljd6bS02NC4yIDQ0LjdIMTEwdjQyLjFjLTExLTExLjUtMTktMjYtMjIuNy00Mi4xem00Mi43IDBoMjIuN2MtMy43IDE2LjEtMTEuNyAzMC42LTIyLjcgNDIuMXYtNDIuMXoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=");
+}
+
+
+body.lowvision .header-bg *,
+body.lowvision .stepper .nav-tabs li a.active span,
+body.lowvision .map_link .headline,
+body.lowvision .map_link .description,
+body.lowvision .map_link .detail_link,
+body.lowvision header .menu ul li:hover>a,
+body.lowvision label.error,
+body.lowvision .banners_wrapper .item * {
+    color: rgb(0, 0, 0) !important;
+}
+body.lowvision *,
+body.lowvision button.button,
+body.lowvision .content ol li::before,
+body.lowvision .acts_search_results ol li:before,
+body.lowvision .custom_form.digest-subscribe-form button.button,
+body.lowvision .team_item .photo {
+    color: #000 !important;
+    box-shadow: none;
+    -webkit-transition: 0s ease-in-out;
+    -moz-transition: 0s ease-in-out;
+    -ms-transition: 0s ease-in-out;
+    -o-transition: 0s ease-in-out;
+    transition: 0s ease-in-out;
+}
+
+body.lowvision header .header_content .header_headline.center:before,
+body.lowvision .team_item .photo,
+body.lowvision .detail_link:after,
+body.lowvision .content_slider_wrapper .content_slider .slide,
+body.lowvision .content_slider_wrapper .content_slider_nav .slide,
+body.lowvision .content_navigation .prev:before,
+body.lowvision .content_navigation .next:after,
+body.lowvision .mfp-image-holder .mfp-content img.mfp-img,
+body.lowvision .mediagallery_wrapper .mediagallery__list .item .preview,
+body.lowvision .mediagallery_wrapper .photo_item .js_popup,
+body.lowvision .structure_list button.btn,
+body.lowvision .slick-prev:before,
+body.lowvision .slick-next:before,
+body.lowvision .mfp-container,
+body.lowvision .blockquote_share,
+body.lowvision #map,
+body.lowvision img,
+body.lowvision .content_navigation .prev:before,
+body.lowvision .content_navigation .prev:after,
+body.lowvision .content_navigation .next:after,
+body.lowvision .content_navigation .next:before {
+    -webkit-filter: grayscale(100%) !important;
+    filter: grayscale(100%) !important;
+}
+
+body.lowvision .hide_low {
+    filter: grayscale(100%);
+}
+
+body.lowvision .header .header-bg,
+body.lowvision .stepper .nav-tabs li a.active,
+body.lowvision .map_link .filter,
+body.lowvision header .header-bg,
+body.lowvision header .menu ul li .submenu,
+body.lowvision header .menu ul li.active,
+body.lowvision header .menu ul li:hover,
+body.lowvision header .search_form,
+body.lowvision header .search_form .toggle_forms .button.active,
+body.lowvision header .search_form .toggle_forms .button,
+body.lowvision .stepper .nav-tabs:before,
+body.lowvision header .search_form .toggle_forms .button:hover,
+body.lowvision .content ul li::before,
+body.lowvision label.error,
+body.lowvision .banners_wrapper .item,
+body.lowvision #menu,
+body.lowvision header .menu ul,
+body.lowvision .hr {
+    opacity: 1 !important;
+    background: rgb(255, 255, 255) !important;
+}
+
+body.lowvision select {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+body.lowvision select.custom_select {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+body.lowvision .button.button,
+body.lowvision .stepper,
+body.lowvision .tag {
+    background-color: #fff !important;
+}
+
+body.lowvision .button.button:hover,
+body.lowvision .stepper:hover,
+body.lowvision .tag:hover {
+    background-color: #fff !important;
+}
+
+body.lowvision .chosen-container .chosen-single {
+    border: 2px solid #000 !important;
+    -webkit-filter: grayscale(100%) !important;
+    filter: grayscale(100%) !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+}
+
+body.lowvision .chosen-container .chosen-single span {
+    color: #000 !important;
+    line-height: 20px !important;
+}
+
+body.lowvision .chosen-container .chosen-results {
+    -webkit-filter: grayscale(100%) !important;
+    filter: grayscale(100%) !important;
+}
+
+body.lowvision .chosen-container .chosen-results li {
+    color: #000 !important;
+}
+
+body.lowvision .chosen-container .chosen-results li.highlighted {
+    color: #000 !important;
+    background: none;
+    background-color: #fff !important;
+}
+
+body.lowvision .stepper .nav-tabs li a,
+body.lowvision input.text,
+body.lowvision .tag,
+body.lowvision button.button,
+body.lowvision .stepper {
+    border: 2px solid #000 !important;
+}
+
+body.lowvision .scrollToTop {
+    background-color: #000;
+}
+
+body.lowvision header.wrapper {
+    border-right: 2px solid #000;
+    border-left: 2px solid #000;
+}
+
+body.lowvision header+div.wrapper {
+    border: 2px solid #000;
+}
+
+body.lowvision header:not([class*="wrapper"]) .wrapper {
+    border-right: 2px solid #000;
+    border-left: 2px solid #000;
+}
+
+body.lowvision .submenu_list.wrapper {
+    border-right: 2px solid #000;
+    border-left: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+body.lowvision #overflowedItemsList .submenu_list.wrapper {
+    border: none;
+}
+
+@media (min-width: 992px) {
+    body.lowvision .monochromeLimitedHeader .submenu {
+        margin-left: -2px !important;
+        border-right: 2px solid #000;
+        border-left: 2px solid #000;
+        border-bottom: 2px solid #000;
+    }
+}
+
+
+@media (max-width: 991px) {
+    body.lowvision .submenu_list.wrapper {
+        border: none !important;
+    }
+}
+
+body.lowvision header .allWidthDichromaticHeader .header-bg {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+body.lowvision header .search_form .toggle_forms .button.active {
+    border: 2px solid #fff !important;
+}
+
+body.lowvision header .form input.text,
+body.lowvision .custom_form input.text {
+    color: #000 !important;
+    background-image: none;
+}
+
+body.lowvision .daterangepicker.ltr .ranges .btn-success {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+body.lowvision .message-title {
+    background: #fff;
+}
+
+body.lowvision .message-title span {
+    color: #000 !important;
+}
+
+
+
+body.lowvision .user-bg {
+    -webkit-filter: grayscale(100%) !important;
+    filter: grayscale(100%) !important;
+}
+
+body.lowvision .user-bg .btn {
+    color: #fff !important;
+}
+
+body.lowvision .custom_form {
+    position: relative;
+    z-index: 2;
+}
+
+body.lowvision .custom_form input,
+body.lowvision .custom_form input.text {
+    background: #fff;
+}
+
+body.lowvision .faq_wrap-btn,
+body.lowvision .custom_form {
+    -webkit-filter: grayscale(100%) !important;
+    filter: grayscale(100%) !important;
+    background-color: lightgrey !important;
+}
+
+body.lowvision #layout-header .custom_form {
+    background-color: #000 !important;
+    -webkit-filter: grayscale(0%) !important;
+    filter: grayscale(0%) !important;
+}
+
+body.lowvision .modal.gov .gov-ua {
+    background-color: #fff !important;
+}
+
+body.lowvision .modal.gov .gov-ua ul li a {
+    color: #000 !important;
+    font-weight: 600 !important;
+    border: none !important;
+}
+
+body.lowvision .datepicker .datepicker-days tr td.day:hover,
+body.lowvision .datepicker .datepicker-days tr td.day.active,
+body.lowvision .datepicker .datepicker-days tr td.day.focused {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+
+body.lowvision .radio:checked+label:before {
+    border: 1px solid #000;
+}
+
+body.lowvision .radio:checked+label:after {
+    background-color: #000;
+}
+
+body.lowvision .checkbox:checked+label:before,
+body.lowvision .rc-anchor-logo-img {
+    filter: grayscale(100%);
+}
+
+body.lowvision .figure.lead__figure,
+body.lowvision .folder-box,
+body.lowvision .museum__wrap,
+body.lowvision .main-num__item,
+body.lowvision .main-num__box,
+body.lowvision .attaches a:before,
+body.lowvision .fr-file:after {
+    -webkit-filter: grayscale(100%) !important;
+    filter: grayscale(100%) !important;
+}
+
+body.lowvision .sidebar-useful ul li a:hover .text,
+body.lowvision .sidebar-useful ul li a:hover .num {
+    color: #000 !important;
+    cursor: pointer;
+}
+
+body.lowvision .input-group-addon,
+body.lowvision .last-news__item-image,
+body.lowvision .btn,
+body.lowvision .btn_default {
+    -webkit-filter: grayscale(100%) !important;
+    filter: grayscale(100%) !important;
+}
+
+body.lowvision .js_datepicker_single {
+    border: 2px solid #000 !important;
+}
+
+body.lowvision .content table thead tr {
+    background-color: #fff !important;
+}
+
+body.lowvision .attachment a:before {
+    -webkit-filter: grayscale(100%) !important;
+    filter: grayscale(100%) !important;
+}
+
+body.lowvision .faq_wrap-btn,
+body.lowvision .custom_form {
+    -webkit-filter: grayscale(100%) !important;
+    filter: grayscale(100%) !important;
+    background-color: #fff !important;
+    border: 1.5px solid #000;
+}
+
+body.lowvision button:disabled,
+body.lowvision button.disabled,
+body.lowvision .btn:disabled,
+body.lowvision .btn.disabled,
+body.lowvision .btn_default:disabled,
+body.lowvision .btn_default.disabled {
+    border: 2px solid #000 !important;
+    background: #fff !important;
+}
+
+body.lowvision .table-responsive .table thead tr,
+body.lowvision .table-responsive table thead tr {
+    background-color: #fff !important;
+}
+
+body.lowvision .datepicker {
+    border: 1.5px solid #000;
+}
+
+
+
+@media (max-width: 991px) {
+    body.lowvision .arrowBlock {
+        visibility: hidden;
+    }
+}
+
+
+body.lowvision .allWidthDichromaticHeader .allNavItemsDiv:hover .allNavItemsIcon path,
+body.lowvision .dichromaticLimitedHeader .allNavItemsDiv:hover .allNavItemsIcon path {
+    color: #fff !important;
+}
+
+body.lowvision #footer-lowvision-translate {
+    margin-top: 40px;
+}

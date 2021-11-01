@@ -1,0 +1,33 @@
+.breadcrumb {
+    background-color: #ffffff00;
+    padding: 0;
+    margin: 30px 0 !important;
+  }
+  .breadcrumb li {
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+  .breadcrumb li a {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .breadcrumb-color li a {
+    color: var(--theme-color);
+  }
+  .breadcrumb-mobile {
+    display: none;
+  }
+
+  body.lowvision .breadcrumb > li > a:hover {
+    border-bottom: 1px solid #000;
+  }
+ 
+  @media (max-width:767px) {
+    .breadcrumb {
+        display: none;
+    }
+    .breadcrumb-mobile{
+        display:block;
+    }
+  }

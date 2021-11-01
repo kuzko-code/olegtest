@@ -1,0 +1,29 @@
+:root {
+    --rubric-bg-color: var(--theme-color);
+    --rubric-color: #ffffff;
+}
+
+.rubric-button {
+    display: inline-block;
+    height: 30px;
+    padding: 0 10px;
+    margin: 0 10px;
+    line-height: 30px;
+    overflow: hidden;
+    display: -webkit-inline-box !important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 100%;
+    color: var(--rubric-color);
+    background-color: var(--rubric-bg-color);
+}
+
+.rubric-button:hover {
+    text-decoration: underline;
+    color: var(--rubric-color);
+    background-color: var(--rubric-bg-color);
+}

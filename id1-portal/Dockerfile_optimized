@@ -3,9 +3,12 @@ FROM node:12-alpine as build
 EXPOSE 8080 8081 4000
 
 ENV DB_HOST=postgres-db-id1-portal
-ENV DB_USER=ogp_user
-ENV DB_PASSWORD=.#}2bkhSj@PH
-ENV DB_NAME=ogp
+#ENV DB_USER=ogp_user
+#ENV DB_PASSWORD=.#}2bkhSj@PH
+#ENV DB_NAME=ogp
+ENV DB_USER=postgres
+ENV DB_PASSWORD=Qd8q9StE
+ENV DB_NAME=kru
 ENV DB_PORT=5432
 ENV NODE_ENV=production
 ENV PORTAL_ID=1
@@ -62,9 +65,12 @@ RUN npm i && npm run build
 FROM node:12-alpine as final
 
 ENV DB_HOST=postgres-db-id1-portal
-ENV DB_USER=ogp_user
-ENV DB_PASSWORD=.#}2bkhSj@PH
-ENV DB_NAME=ogp
+#ENV DB_USER=ogp_user
+#ENV DB_PASSWORD=.#}2bkhSj@PH
+#ENV DB_NAME=ogp
+ENV DB_USER=postgres
+ENV DB_PASSWORD=Qd8q9StE
+ENV DB_NAME=kru
 ENV DB_PORT=5432
 ENV NODE_ENV=production
 ENV PORTAL_ID=1
@@ -106,13 +112,14 @@ COPY --from=build /app/backend/node_modules /app/backend/node_modules
 COPY --from=build /app/backend/package.json /app/backend/package.json
 COPY --from=build /app/public/build /app/public/build
 COPY --from=build /app/public/package.json /app/public/package.json
-COPY --from=build /app/db_migrate/dist /app/db_migrate/dist
-COPY --from=build /app/db_migrate/package.json /app/db_migrate/package.json
+COPY --from=build /app/db_migrate/ /app/db_migrate/
+#COPY --from=build /app/db_migrate/package.json /app/db_migrate/package.json
 COPY --from=build /app/ecosystem.config.js /app/ecosystem.config.js
 
 COPY ./attachments /attachments
 COPY ./private-attachments /private-attachments
 COPY ./logs/pm2/ /root/.pm2/logs/
+COPY ./projects/pluginsInfo /app/pluginsInfo
 
 
 

@@ -61,7 +61,7 @@ export class visitors_with_validation {
     language: Validation.language,
   })
   static async create_visitor(data: create_visitor_payload) {
-    // await Helper.recaptchaSiteVerify(data.token);
+    await Helper.recaptchaSiteVerify(data.token);
 
     return await Visitors.create_visitor({
       options: data,

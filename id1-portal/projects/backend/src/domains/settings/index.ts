@@ -3,16 +3,24 @@ import { Validate } from "../../etc/helpers";
 import { Validation } from "../../helper/validationElements";
 import {
   get_or_delete_settings_payload,
-  create_settings_payload,
   update_settings_payload,
   get_settings_by_title_payload,
   get_admin_navigation_payload,
+  get_general_settings_payload,
 } from "./types";
 import Ajv from "ajv";
 import { Users } from "../../features/users";
 import { AjvServices } from "../../helper/ajv";
 
 export class settings_with_validation {
+  @Validate((args) => args[0], {
+    language: Validation.language,
+    mode: { type: "string", optional: true },
+  })
+  static async get_general_settings(data: get_general_settings_payload) {
+    return await site_settings.get_general_settings({ options: data });
+  }
+
   static async get_admin_navigation(data: get_admin_navigation_payload) {
     return await site_settings.get_admin_navigation({
       options: data,
@@ -46,34 +54,6 @@ export class settings_with_validation {
   })
   static async get_site_settings_by_title(data: get_settings_by_title_payload) {
     return await site_settings.get_site_settings_by_title({
-      options: data,
-    });
-  }
-
-  @Validate((args) => args[0], {
-    settings: {
-      type: "array",
-      empty: false,
-      items: {
-        type: "object",
-        props: {
-          title: { type: "string", min: 3 },
-          settings_object: { type: "any" },
-          settings_schema_id: { type: "number" },
-        },
-      },
-    },
-    language: Validation.language,
-  })
-  static async create_site_settings(data: create_settings_payload) {
-    const res = await site_settings.get_setting_schema_by_id({ options: data });
-    for (let s = 0; s < res.length; s++) {
-      AjvServices.validate_json_schema(
-        res[s].settings_schema,
-        data.settings[s].settings_object
-      );
-    }
-    return await site_settings.create_site_settings({
       options: data,
     });
   }
@@ -155,21 +135,5 @@ export class settings_with_validation {
       // 	throw preconditionFailedEx;
       // }
     }
-  }
-
-  @Validate((args) => args[0], {
-    titles: {
-      type: "array",
-      empty: false,
-      items: {
-        type: "string",
-        min: 3,
-      },
-    },
-  })
-  static async delete_site_settings(data: get_or_delete_settings_payload) {
-    return await site_settings.delete_site_settings({
-      options: data,
-    });
   }
 }

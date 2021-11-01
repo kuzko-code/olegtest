@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
+import { addUrlProps, UrlQueryParamTypes } from 'react-url-query';
 import { withTranslate } from 'react-redux-multilingual';
 import { connect } from 'react-redux';
-import RightPanelNews from './rightPanelNews.jsx';
-import SocialNetwork from './socialNetwork.jsx';
-import Banner from './banner.jsx';
-import FacebookPage from '../../facebook/facebook-page.jsx';
-import BlockLinks from './blockLinks.jsx';
-import PopularTags from "../../news/popularTags.jsx";
-import { addUrlProps, UrlQueryParamTypes } from 'react-url-query';
 import PropTypes from 'prop-types';
+import SidebarNews from '../../widget/SidebarNews/SidebarNews.jsx';
+import SocialNetwork from '../../widget/SocialNetwork/SocialNetwork.jsx';
+import LinkEditor from '../../widget/LinkEditor/LinkEditor.jsx';
+import FacebookPage from '../../facebook/facebook-page.jsx';
+import BlockLinks from '../../widget/BlockLinks/BlockLinks.jsx';
+import PopularTags from "../../widget/PopularTags/PopularTags.jsx";
 
-import SubscribeNews from './subscribeNews.jsx';
+import SubscribeNews from '../../widget/SubscribeNews/SubscribeNews.jsx';
 
 export class RightPanel extends Component {
   constructor(props) {
@@ -35,34 +35,31 @@ export class RightPanel extends Component {
     if (!banner) return null;
     switch (banner.type_title) {
       case 'socialNetworks':
-        return <SocialNetwork key={banner.id} colorThemeWidget={this.props.colorThemeWidget} />;
+        return <SocialNetwork key={banner.id} />;
       case 'latestNews':
       case 'popularNews':
         return banner.form_data &&
           banner.form_data.numberOfNews > 0 &&
-          <RightPanelNews
+          <SidebarNews
             key={banner.id}
-            colorThemeWidget={this.props.colorThemeWidget}
             title={banner.type_title}
             form_data={banner.form_data}
           />
       case 'linkEditor':
         return banner.form_data &&
-          <Banner
+          <LinkEditor
             key={banner.id}
-            colorThemeWidget={this.props.colorThemeWidget}
             form_data={banner.form_data}
           />
       case 'blockLinks':
         return banner.form_data &&
           <BlockLinks key={banner.id} form_data={banner.form_data} />;
       case 'popularTags':
-        return <div key={banner.id} className="widget widget-tags color-theme">
-          <PopularTags
-            activeTag={this.state.tag}
-            activateTags={this.activateTags}
-          />
-        </div>
+        return <PopularTags
+          key={banner.id}
+          activeTag={this.state.tag}
+          activateTags={this.activateTags}
+        />
       case 'mailing':
         return <SubscribeNews />
       case 'facebookPage':
@@ -91,11 +88,10 @@ export class RightPanel extends Component {
     const { rightBannersPosition } = this.props;
 
     return (
-      <div className="tab-content">
-        <div className="animated active">
-          {rightBannersPosition.map(this.getBanner)}
-        </div>
-      </div>
+      <>
+
+        {rightBannersPosition.map(this.getBanner)}
+      </>
     );
   }
 }

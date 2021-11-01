@@ -1,0 +1,12 @@
+.link-editor .se-component.se-image-container * {
+    max-width: 100%;
+}
+
+.link-editor .se-video-container iframe {
+    width: auto !important;
+    height: auto !important;
+}
+
+.link-editor img {
+    max-width: 100%;
+}

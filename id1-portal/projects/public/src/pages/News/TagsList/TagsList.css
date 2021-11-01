@@ -1,0 +1,40 @@
+:root {
+    --tag-bg-color: #eaeaee;
+    --tag-color: #9c9c9c;
+    --tag-active-bg-color: #d8d8d8;
+    --tag-active-color: #9c9c9c;
+}
+
+ul.tags-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.tags-list>li {
+    height: auto;
+    background: var(--tag-bg-color);
+    border-radius: 28px;
+    cursor: pointer;
+    padding: 0 0.9375rem;
+    margin-right: 0.3125rem;
+    margin-left: 0.3125rem;
+    margin-bottom: 0.5625rem;
+    float: left;
+}
+
+ul.tags-list>li:hover,
+ul.tags-list>li:focus,
+ul.tags-list>li.active {
+    background: var(--tag-active-bg-color);
+    color: var(--tag-active-color);
+
+}
+
+ul.tags-list>li a {
+    color: var(--tag-color);
+    font-size: 0.875rem;
+    line-height: 27px;
+    font-weight: 300;
+    text-decoration: none;
+}

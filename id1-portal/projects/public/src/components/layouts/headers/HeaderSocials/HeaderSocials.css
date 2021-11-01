@@ -1,0 +1,25 @@
+@media (max-width: 991px) {
+    #header-socials {
+        display: none !important;
+    }
+}
+
+#header-socials {
+    align-self: flex-start;
+    display: flex;
+    min-height: 50px;
+    cursor: pointer;
+    align-items: center;
+    margin-left: auto;
+}
+
+#header-socials a {
+    color: white !important;
+    opacity: 0.5;
+    padding-right: 10px;
+
+}
+
+#header-socials a:hover {
+    opacity: 1;
+}

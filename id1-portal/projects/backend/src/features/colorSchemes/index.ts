@@ -11,24 +11,25 @@ import {
 
 class Api {
   public async create_color_scheme({
-    options: { color_scheme },
+    options: { color_scheme, template },
     client = db,
   }: method_payload<create_color_scheme_payload>) {
-    const createcolor_scheme = format(
-      "INSERT INTO color_schemes (color_scheme) VALUES(%L) RETURNING id",
-      JSON.stringify(color_scheme)
+    const createColorScheme = format(
+      "INSERT INTO color_schemes (color_scheme, template) VALUES(%L, %L) RETURNING id",
+      JSON.stringify(color_scheme),
+      template
     );
 
-    return client.query(createcolor_scheme).then((res) => res.rows[0]);
+    return client.query(createColorScheme).then((res) => res.rows[0]);
   }
 
   public get_color_schemes({
     options,
     client = db,
   }: method_payload<get_color_schemes_payload>) {
-    const getcolor_schemes = this.build_query(options);
+    const getColorSchemes = this.build_query(options);
 
-    return client.query(getcolor_schemes).then((res) => {
+    return client.query(getColorSchemes).then((res) => {
       if (options.aggregate.func) return res.rows[0];
       else return res.rows;
     });
@@ -39,6 +40,7 @@ class Api {
     aggregate,
     sort,
     limit,
+    filters,
   }: get_color_schemes_payload): string {
     let fieldsQuery;
 
@@ -52,6 +54,11 @@ class Api {
     }
 
     let sql = format(`SELECT %s FROM color_schemes WHERE true \n`, fieldsQuery);
+
+    if (filters.template !== null) {
+      sql +=
+        "AND " + format("color_schemes.template = %L", filters.template) + "\n";
+    }
 
     if (sort.field && !aggregate.func) {
       sql +=

@@ -1,17 +1,17 @@
 export type update_schedule_updated_payload = {
-	updatedFrequency: string;
-	updatedTime: number;
-	updatedDay: number;
+  updatedFrequency: string;
+  updatedTime: number;
+  updatedDay: number;
 };
 
 export type get_portal_update_settings_payload = {
-	titles: string[];
+  titles: string[];
 };
 
 export type registration_payload = {
-	email: string;
+  email: string;
 };
 
 export type get_or_delete_portal_update_setting_payload = {
-	title: string;
+  title: string;
 };

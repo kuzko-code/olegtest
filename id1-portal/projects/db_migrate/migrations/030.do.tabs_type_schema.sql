@@ -11,7 +11,7 @@ CREATE TABLE tabs_type(
     tabs_schema_id VARCHAR(50),
     picture VARCHAR(100) NOT NULL DEFAULT 'Default picture',
     tab_position tabs_position_type ARRAY[4] ,
-    FOREIGN key (tabs_schema_id) REFERENCES json_schemas(id)
+    FOREIGN KEY (tabs_schema_id) REFERENCES json_schemas(id)
 );
 
 

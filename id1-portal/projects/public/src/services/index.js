@@ -1,5 +1,31 @@
 import { getFromAPI } from '../helpers/api-helpers';
 
+export const getGeneralSettings = (language) => {
+   if (language) {
+      return fetch(`${process.env.API_HOST}/settings/general?language=${language}`)
+         .then(res => res.json())
+   } else {
+      return fetch(`${process.env.API_HOST}/settings/general`)
+         .then(res => res.json())
+   }
+
+}
+export const getPreviewGeneralSettings = (language) => {
+   if (language) {
+      return fetch(`${process.env.API_HOST}/settings/general/preview?language=${language}`)
+         .then(res => res.json())
+   } else {
+      return fetch(`${process.env.API_HOST}/settings/general/preview`)
+         .then(res => res.json())
+   }
+}
+export const getGovSites = (language) => {
+   return fetch(`${process.env.API_HOST}/settings/GovSites?language=${language}`)
+      .then(res => res.json())
+
+}
+
+
 export const getPopularNews = (count, language) => {
 
    var fromDate = setLastMonthDate(new Date());
@@ -56,7 +82,7 @@ export const getNewsByIds = (ids, language) => {
 
 export const getMainNews = (id) => {
    return fetch(`${process.env.API_HOST}/news/${id}?fields=id,title,content,created_date,published_date,description,images,language,main_picture,tags,facebook_enable&include=rubric,attachments,nextNews,previousNews`).then(
-     (res) => res.json()
+      (res) => res.json()
    );
 }
 
@@ -152,7 +178,7 @@ export const getFileId = (file) => {
 
 export const getFileName = (file) => {
    let filePath = require('path').basename(file)
-   return filePath.substring(filePath.indexOf('_')+1)
+   return filePath.substring(filePath.indexOf('_') + 1)
 }
 
 export const getBannerByTitle = (title, language) => {
@@ -165,38 +191,38 @@ export const getLocationOfBanners = (language) => {
       .then(res => res.json())
 }
 
-export const getUsefullLinks = (language) => {
+export const getUsefulLinks = (language) => {
    return fetch(`${process.env.API_HOST}/settings/usefulLinks?language=${language}`)
       .then(res => res.json())
 }
 
 export const getLatestNews = (count, language) => {
    return fetch(`${process.env.API_HOST}/news?include=rubric&sortDirection=desc&language=${language}&fields=id,title,published_date,main_picture&isPublished=true&count=${count}&sortField=published_date`)
-   .then(res => res.json())
+      .then(res => res.json())
 }
 
 export const getBannersByTitles = (bannersString, language) => {
    return fetch(`${process.env.API_HOST}/tabs?titles=${bannersString}&language=${language}`)
-   .then(res => res.json())
+      .then(res => res.json())
 }
 
-export const getBanersIncludeFormData= (title,language) => {
+export const getBanersIncludeFormData = (title, language) => {
    return fetch(`${process.env.API_HOST}/getBanersIncludeFormData?title=${title}&language=${language}`)
-   .then(res => res.json())
+      .then(res => res.json())
 }
 
 export const getFacebookSettings = () => {
    return fetch(`${process.env.API_HOST}/settings/facebookSettings`)
       .then(res => res.json())
 }
-  
+
 export const postNewsSubscription = (body) =>
-  getFromAPI('/newsSubscriptions', null, 'POST', body).then(
-    (data) => data
+   getFromAPI('/newsSubscriptions', null, 'POST', body).then(
+      (data) => data
    );
-  
+
 export const putNewsSubscription = (id, body) =>
    getFromAPI(`/newsSubscriptions/${id}`, null, 'PUT', body).then((data) => data);
 
 export const getNewsSubscription = (id, language) =>
-   getFromAPI(`/newsSubscriptions/${id}`, {language}, 'GET', null).then((data) => data);
+   getFromAPI(`/newsSubscriptions/${id}`, { language }, 'GET', null).then((data) => data);

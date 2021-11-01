@@ -1,0 +1,21 @@
+.page-share .page-share-title {
+    font-size: 0.875rem;
+    line-height: 150%;
+    font-weight: 600;
+    color: #959595;
+    margin-bottom: 0.625rem;
+}
+
+.page-share {
+    width: 50%;
+}
+
+.page-share .page-share-buttons {
+    display: flex;
+    justify-content: space-between;
+    max-width: 120px;
+}
+
+.page-share .page-share-buttons>* {
+    cursor: pointer;
+}

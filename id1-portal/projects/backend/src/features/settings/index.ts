@@ -2,17 +2,138 @@ import { db } from "../../db";
 import {
   get_or_delete_settings_payload,
   get_settings_by_title_payload,
-  create_settings_payload,
+  get_setting_schema_by_id_payload,
   update_settings_payload,
   get_admin_navigation_payload,
   get_banners_include_form_data,
+  get_general_settings_payload,
 } from "./types";
 import { method_payload } from "../base_api_image";
 import format from "pg-format";
 import { DEFAULT_LANGUAGE } from "../../constants";
 import { PluginsInfo } from "../../features/pluginsInfo";
+import { SiteTemplateSettings } from "../../features/templates/settings";
 
 class Api {
+  private async validateLanguagesSite(language: string) {
+    let languages = await site_settings.get_site_settings_by_title({
+      options: { title: "languagesOnThePublicSite", language },
+    });
+
+    if (
+      languages &&
+      languages.settings_object &&
+      Array.isArray(languages.settings_object)
+    ) {
+      if (languages.settings_object.includes(language)) {
+        return language;
+      } else {
+        return languages.settings_object[0];
+      }
+    }
+  }
+
+  public async get_general_settings({
+    options: { language, mode },
+    client = db,
+  }: method_payload<get_general_settings_payload>) {
+    language = await this.validateLanguagesSite(language);
+
+    let layout = "layout";
+    let contacts = "contacts";
+    let siteLogos = "siteLogos";
+
+    if (mode && mode.toLowerCase() == "preview") {
+      layout = "layoutOfPreview";
+      contacts = "contactsOfPreview";
+      siteLogos = "siteLogosOfPreview";
+    }
+
+    let plugins = await PluginsInfo.get_plugins({ options: {} });
+    // get site_template
+    let siteTemplateSettingsView: string =
+      SiteTemplateSettings.siteTemplateSettingsView(language);
+    let sqlSiteTemplates = format(
+      `SELECT 'template' as title, to_jsonb(each)::jsonb as settings_object  FROM
+          (select site_template_settings.title,
+            site_template_settings.header,
+            site_template_settings.footer,
+            site_template_settings.settings_object
+            from ${siteTemplateSettingsView}
+            where site_template_settings.title = (select (select * from json_extract_path_text(
+              ss.settings_object , 'header')) as header              
+              from site_settings as ss WHERE ss.title = %L
+              AND (language = %L or language is null))
+              ) as each   \n`,
+      layout,
+      language
+    );
+
+    // get site_settings
+    let sqlSiteSettings = format(
+      `SELECT ss.title, ss.settings_object::jsonb FROM site_settings as "ss" WHERE title IN (%L) AND (language = %L or language is null)  \n`,
+      [
+        "telegramNotification",
+        "facebookSettings",
+        "metaGoogleSiteVerification",
+        "GovSites",
+        "mainNavigation",
+        layout,
+        contacts,
+        siteLogos,
+      ],
+      language
+    );
+
+    // get tabs
+    let sqlTabs = format(
+      `SELECT 'tabs' as title, json_object_agg(each.position, each.names)::jsonb as settings_object FROM (    
+			    SELECT position, array_agg(row_to_json(t)) as names FROM				
+				  (select tabs.id, tabs.index, tabs.form_data, tabs.type_title, tabs.position from tabs where "language"= %L AND tabs.enabled = 't' order by index)			
+				  as t GROUP BY position 
+				  ) AS each  \n`,
+      language
+    );
+
+    let sqlLanguage = format(
+      `SELECT 'languagesOnThePublicSite' as title, to_jsonb(array_agg(each)) as settings_object FROM (			    
+		    SELECT title, cutback
+        FROM languages
+        WHERE languages.cutback IN (
+            select json_array_elements_text(ss.settings_object) as cutback from (SELECT settings_object
+            FROM "site_settings"
+            WHERE title = 'languagesOnThePublicSite') as ss
+            )
+				  ) AS each   \n`
+    );
+
+    let sqlData = await client
+      .query(
+        `select json_object_agg(result.title, result.settings_object ) as object_agg from (${[
+          sqlSiteSettings,
+          sqlTabs,
+          sqlSiteTemplates,
+          sqlLanguage,
+        ].join("UNION \n")}) as result`
+      )
+      .then(({ rows }) => rows[0].object_agg);
+
+    let result = { ...sqlData, plugins, language };
+    if (mode && mode.toLowerCase() == "preview") {
+      delete Object.assign(result, {
+        ["layout"]: result["layoutOfPreview"],
+      })["layoutOfPreview"];
+      delete Object.assign(result, {
+        ["contacts"]: result["contactsOfPreview"],
+      })["contactsOfPreview"];
+      delete Object.assign(result, {
+        ["siteLogos"]: result["siteLogosOfPreview"],
+      })["siteLogosOfPreview"];
+    }
+
+    return result;
+  }
+
   public async get_admin_navigation({
     options: { ctx },
     client = db,
@@ -222,36 +343,10 @@ class Api {
     return client.query(sql, [title, language]).then(({ rows }) => rows[0]);
   }
 
-  public create_site_settings({
-    options: { settings, language = DEFAULT_LANGUAGE },
-    client = db,
-  }: method_payload<create_settings_payload>) {
-    const values = settings
-      .map((s) =>
-        format(
-          "(%L, %L, %L, %L)",
-          s.title,
-          JSON.stringify(s.settings_object),
-          s.settings_schema_id,
-          language
-        )
-      )
-      .join(",");
-
-    const sql = `
-            INSERT INTO public.site_settings
-            (title, settings_object, json_schema_id, "language")
-            VALUES ${values}`;
-
-    return client.query(sql).then((res) => {
-      return {};
-    });
-  }
-
   public async get_setting_schema_by_id({
     options: { settings, language = DEFAULT_LANGUAGE },
     client = db,
-  }: method_payload<create_settings_payload>) {
+  }: method_payload<get_setting_schema_by_id_payload>) {
     let sql = format(
       `
                 SELECT js.json_schema as "settings_schema"
@@ -309,26 +404,6 @@ class Api {
     );
 
     return client.query(sql).then((res) => res.rows);
-  }
-
-  public delete_site_settings({
-    options: { titles, language = DEFAULT_LANGUAGE },
-    client = db,
-  }: method_payload<get_or_delete_settings_payload>) {
-    let sql = format(
-      `
-                DELETE
-                FROM "site_settings"
-                WHERE title IN (%L)
-                  AND (language = %L or language is null)
-            `,
-      titles,
-      language
-    );
-
-    return client.query(sql).then((res) => {
-      return {};
-    });
   }
 }
 

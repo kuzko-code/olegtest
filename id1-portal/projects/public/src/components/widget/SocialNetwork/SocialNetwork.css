@@ -1,0 +1,49 @@
+.social-icon {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .social-icon li {
+    display: inline-block;
+    margin: 0 0px 0 0;
+  }
+  .social-icon li a i {
+    background: #ec0000;
+    color: #fff;
+    font-size: 18px;
+    width: 80px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    -webkit-transition: 350ms;
+    -o-transition: 350ms;
+    transition: 350ms;
+    margin-bottom: 10px;
+
+  }
+
+  .social-icon li a i.fa-rsss {
+    background: #fa9b39;
+  }
+  .social-icon li a i.fa-facebooks {
+    background: #3b5998;
+  }
+  .social-icon li a i.fa-twitters {
+    background: #00aced;
+  }
+  .social-icon li a i.fa-linkedins {
+    background: #2977c9;
+  }
+  .social-icon li a i.fa-vimeo-squares {
+    background: #7fc400;
+  }
+  .social-icon li a i.fa-youtubes {
+    background: #bb0000;
+  }
+  .social-icon li a i:hover {
+    background: #1c1c1c;
+  }
+
+  body.lowvision .social-icon svg path {
+    color: white !important;
+  } 

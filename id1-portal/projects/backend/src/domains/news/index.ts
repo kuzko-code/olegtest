@@ -24,7 +24,7 @@ export class news_with_validation {
                 min: 3
             },
             main_picture: {
-                type: "string"
+                type: "uuid"
             },
             description: {
                 type: "string"
@@ -73,7 +73,7 @@ export class news_with_validation {
                 type: "array",
                 max: 15,
                 items: {
-                    type: "string",
+                    type: "uuid",
                     empty: false
                 }
             },
@@ -226,7 +226,7 @@ export class news_with_validation {
                 min: 3
             },
             main_picture: {
-                type: "string"
+                type: "uuid"
             },
             description: {
                 type: "string"
@@ -275,7 +275,7 @@ export class news_with_validation {
                 type: "array",
                 max: 15,
                 items: {
-                    type: "string",
+                    type: "uuid",
                     empty: false
                 }
             },
@@ -319,11 +319,6 @@ export class news_with_validation {
                         integer: true,
                         min: 1
                     }
-                    // ,
-                    // language: {
-                    //     type: "string",
-                    //     optional: true
-                    // }
                 }
             }
         }

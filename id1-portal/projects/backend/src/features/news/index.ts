@@ -134,7 +134,7 @@ class Api {
               INSERT INTO news
               (title, main_picture, description, content, rubric_id, tags, created_date, updated_date, is_published, published_date, language, images, facebook_enable)
               VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
-              RETURNING id;
+              RETURNING id, (SELECT attac.source_url FROM attachments attac WHERE attac.id = news.main_picture) as "main_picture";
         `;
     const res = await client.query(createNews, [
       title,
@@ -152,6 +152,7 @@ class Api {
       facebook_enable,
     ]);
     const newsId = res.rows[0].id;
+    main_picture = res.rows[0].main_picture;
 
     if (attachments) {
       let attacs = attachments.map((attac) =>
@@ -237,10 +238,20 @@ class Api {
         ? selectedFields
             .map((f) => {
               if (f == "status") return Helper.add_status_to_sql_query("news");
+              if (f == "images")
+                return format(
+                  `(SELECT coalesce(jsonb_agg(attac.source_url), '[]'::jsonb) FROM attachments attac WHERE attac.id = any(cast(news.images as uuid[]))) as "images"`
+                );
+              if (f == "main_picture")
+                return format(
+                  `(SELECT attac.source_url FROM attachments attac WHERE attac.id = news.main_picture::uuid) as "main_picture"`
+                );
               return format("news.%I", f);
             })
             .join()
-        : `news.*, ${Helper.add_status_to_sql_query("news")}`;
+        : `news.*, ${Helper.add_status_to_sql_query("news")}, 
+        ${format(`(SELECT attac.source_url FROM attachments attac WHERE attac.id = news.main_picture::uuid) as "main_picture", 
+      (SELECT coalesce(jsonb_agg(attac.source_url), '[]'::jsonb) FROM attachments attac WHERE attac.id = any(cast(news.images as uuid[]))) as "images"`)}`;
       if (sort.field == "date") {
         fieldsQuery +=
           format(
@@ -356,10 +367,20 @@ class Api {
     fieldsQuery = selectedFields
       ? selectedFields
           .map((f) => {
+            if (f == "images")
+              return format(
+                `(SELECT coalesce(jsonb_agg(attac.source_url), '[]'::jsonb) FROM attachments attac WHERE attac.id = any(cast(news.images as uuid[]))) as "images"`
+              );
+            if (f == "main_picture")
+              return format(
+                `(SELECT attac.source_url FROM attachments attac WHERE attac.id = news.main_picture::uuid) as "main_picture"`
+              );
             return format("news.%I", f);
           })
           .join()
-      : `news.*`;
+      : `news.*, 
+        ${format(`(SELECT attac.source_url FROM attachments attac WHERE attac.id = news.main_picture::uuid) as "main_picture", 
+      (SELECT coalesce(jsonb_agg(attac.source_url), '[]'::jsonb) FROM attachments attac WHERE attac.id = any(cast(news.images as uuid[]))) as "images"`)}`;
     if (sort.field == "date") {
       fieldsQuery +=
         format(
@@ -451,10 +472,20 @@ class Api {
       ? selectedFields
           .map((f) => {
             if (f == "status") return Helper.add_status_to_sql_query("news");
+            if (f == "images")
+              return format(
+                `(SELECT coalesce(jsonb_agg(attac.source_url), '[]'::jsonb) FROM attachments attac WHERE attac.id = any(cast(news.images as uuid[]))) as "images"`
+              );
+            if (f == "main_picture")
+              return format(
+                `(SELECT attac.source_url FROM attachments attac WHERE attac.id = news.main_picture::uuid) as "main_picture"`
+              );
             return format("news.%I", f);
           })
           .join()
-      : `news.*, ${Helper.add_status_to_sql_query("news")}`;
+      : `news.*, ${Helper.add_status_to_sql_query("news")},
+      ${format(`(SELECT attac.source_url FROM attachments attac WHERE attac.id = news.main_picture::uuid) as "main_picture", 
+      (SELECT coalesce(jsonb_agg(attac.source_url), '[]'::jsonb) FROM attachments attac WHERE attac.id = any(cast(news.images as uuid[]))) as "images"`)}`;
 
     if (includedResources && includedResources.includes("rubric")) {
       fieldsQuery +=
@@ -530,16 +561,17 @@ class Api {
         : "";
       const getAttachments = `
             SELECT 
-                   attachments.id,
-                   attachments.source_url,
-                   attachments.storage_key,
+                   documents.id,
+                   documents.source_url,
+                   documents.storage_key,
+                   documents.content,
                    news_attachments.is_active
             FROM news
               inner JOIN news_attachments
                 ON news.id = news_attachments.news_id
-              inner JOIN attachments
-                ON news_attachments.attachment_id = attachments.id
-            WHERE news.id = $1 ${filter} ORDER BY attachments.uploaded_at
+              inner JOIN documents
+                ON news_attachments.attachment_id = documents.id
+            WHERE news.id = $1 ${filter} ORDER BY documents.uploaded_at
             `;
 
       const attacs = (await client.query(getAttachments, [id])).rows;
@@ -575,28 +607,32 @@ class Api {
       nowDate,
       is_published
     );
+
     //  TODO: Add the ability to update partial
 
     const updateNews = `
               UPDATE news
               SET title = $1, main_picture = $2, description = $3, content = $4, rubric_id = $5, tags = $6, is_published = $7, language = $8, images = $9, published_date = $10, updated_date = $11, facebook_enable = $12
-              WHERE id = $13;
+              WHERE id = $13
+                RETURNING (SELECT attac.source_url FROM attachments attac WHERE attac.id = news.main_picture) as "main_picture";
         `;
-    await client.query(updateNews, [
-      title,
-      main_picture,
-      description,
-      content,
-      rubric_id,
-      tags,
-      published.is_published,
-      language,
-      images,
-      published.published_date,
-      nowDate,
-      facebook_enable,
-      id,
-    ]).then((res: any) => res.rows);
+    main_picture = await client
+      .query(updateNews, [
+        title,
+        main_picture,
+        description,
+        content,
+        rubric_id,
+        tags,
+        published.is_published,
+        language,
+        images,
+        published.published_date,
+        nowDate,
+        facebook_enable,
+        id,
+      ])
+      .then((res: any) => res.rows[0].main_picture);
 
     let attacs = attachments
       ? attachments.map((attac) =>
@@ -656,9 +692,9 @@ class Api {
     await client.query(`SELECT delete_news_from_json_schemas($1)`, [id]);
     let res = await client.query(deleteNews, [id]).then((res: any) => res.rows);
 
-    let imgFilesIds: string[] = Helper.get_attachment_id_by_url(
-        res.map((arr: any) => [arr.images, arr.main_picture]).flat(2)
-    );
+    let imgFilesIds: string[] = res
+      .map((arr: any) => [arr.images, arr.main_picture])
+      .flat(2);
 
     attachments.delete_attachments([...attachmentsFilesIds, ...imgFilesIds]);
     return {};
@@ -721,7 +757,7 @@ class Api {
         SET is_published=true,
          auto_published=true
         WHERE published_date <= NOW()::timestamp and  is_published = false
-        returning id, title, "description", rubric_id, main_picture, language;`;
+        returning id, title, "description", rubric_id, (SELECT attac.source_url FROM attachments attac WHERE attac.id = news.main_picture) as "main_picture", language;`;
 
     let PUBLIC_HOST = process.env.PUBLIC_HOST ? process.env.PUBLIC_HOST : "";
     PUBLIC_HOST = PUBLIC_HOST.endsWith("/") ? PUBLIC_HOST : PUBLIC_HOST + "/";

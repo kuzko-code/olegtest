@@ -19,7 +19,7 @@ import ListAltIcon from '@material-ui/icons/ListAlt';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
-import BreadcrumbsUI from '../../pages/BreadcrumbsUI.jsx';
+import { BreadcrumbsUI } from '../../ReExportComponents.js';
 import PersonalDataForm from '../PersonalDataForm/PersonalDataForm.jsx';
 
 import { deleteUser } from '../../../services/auth-api-service.js';
@@ -50,7 +50,7 @@ const AccountSettings = ({ translate, history }) => {
   let myCabinetTabs = [];
   if (pluginsSettings && pluginsSettings.length) {
     pluginsSettings.forEach(plug => {
-      if(plug && plug.myCabinetTabs && plug.myCabinetTabs.length){
+      if (plug && plug.myCabinetTabs && plug.myCabinetTabs.length) {
         myCabinetTabs = [...myCabinetTabs, ...plug.myCabinetTabs.map(tab => {
           tab.pluginName = plug.name;
           return tab;

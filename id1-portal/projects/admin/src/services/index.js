@@ -347,3 +347,12 @@ export const getNavigation = () => {
     },
   }).then((res) => res.json());
 };
+
+export const getPortalSize=()=>{
+  return fetch(`${process.env.API_HOST}/portalSize`, {
+    method: 'GET',
+    headers: {
+      Authorization: localStorage.getItem('token'),
+    },
+  }).then((res) => res.json());
+}

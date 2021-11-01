@@ -1,0 +1,140 @@
+.floatMenu__wrapper {
+  position: fixed;
+  display: flex;
+  align-items: flex-end;
+  right: 2.25%;
+  bottom: 4%;
+  z-index: 5;
+}
+
+.floatMenu__button {
+  display: block;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.floatMenu__button-large {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: opacity 0.4s;
+  opacity: 0.5;
+  background-color: var(--theme-color);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.floatMenu__buttonMenuWrapper {
+  position: relative;
+}
+
+.floatMenu__button-close {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
+
+.floatMenu__button:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.floatMenu__button:hover {
+  opacity: 1;
+}
+
+.floatMenu__iconWhite {
+  color: white;
+}
+
+.floatMenu__wrapper .floatMenu__iconChat {
+  font-size: 30px;
+}
+
+.floatMenu__iconDark {
+  color: #a3a3a3;
+}
+
+.floatMenu__menuWrapper {
+  position: relative;
+  border-radius: 4px;
+  padding: 24px 20px 18px 20px;
+  margin-right: 20px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.floatMenu__menu {
+  padding: 0;
+  margin: 0;
+}
+
+.floatMenu__menuItem:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.floatMenu__link {
+  font-weight: 300;
+  font-size: 16px;
+  color: #69737b;
+}
+
+body.lowvision .floatMenu__wrapper {
+  display: none;
+}
+
+@media print {
+  .floatMenu__wrapper {
+    visibility: hidden;
+  }
+}
+
+/* animation */
+
+.floatMenu__button-animated {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: -25px;
+  left: -25px;
+  opacity: 0;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  z-index: -1;
+
+  animation: pulsejg1 4s linear infinite;
+  border-radius: 999px;
+  box-shadow: inset 0px 0px 15px 10px rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+}
+
+@keyframes pulsejg1 {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+
+  60% {
+    transform: scale(0.9);
+    opacity: 0.1;
+  }
+
+  70% {
+    transform: scale(1.1);
+    opacity: 0.25;
+  }
+
+  80% {
+    transform: scale(1.25);
+    opacity: 0.1;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}

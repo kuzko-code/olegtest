@@ -1,92 +1,121 @@
 import React, { Suspense } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import { getLanguages, getPluginsInfo } from "./services/index.js";
+import { render } from 'react-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+
 import LinearProgress from '@material-ui/core/LinearProgress';
-import Routs from './routs.js';
-import ServerError from "./components/pages/500.jsx"
-import { Router, Route, IndexRoute, BrowserRouter, Switch } from 'react-router-dom';
-import { hydrate, render } from 'react-dom';
-import plugins from "../src/plugins.js";
+const Routs = React.lazy(() => import('./routs.js'));
+const ServerError = React.lazy(() => import("./pages/Errors/ServerError.jsx"));
 
-
-function createPluginRoutes(pluginsInfo, languagesString) {
-	const routes = [];
-	for (const plugin of plugins) {
-		var pluginInfo = pluginsInfo.filter(res => { if (res.name == plugin.name) { return res } })[0];
-		if (pluginInfo) {
-			if (JSON.parse(pluginInfo.activate)) {
-				for (const page of plugin.pages) {
-					var url = `/:lng(${languagesString})?/plugins/${plugin.name}${page.url}`;
-					routes.push(
-						<Route key={url} path={url} component={page.component} exact />
-					);
-				}
-			}
-		}
-	}
-	return routes;
-}
-
+//services
+import { getGeneralSettings, getPreviewGeneralSettings } from "./services/index.js";
+//helper
+import { getStoreByGeneralSettings } from "./helpers/redux-helpers.js";
+//styles
+import 'bootstrap/dist/css/bootstrap.css';
+import '../public/common.css';
 
 class Root extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
+
+		let defaultLocate = "";
+		if (props.match.params.lng) {
+			defaultLocate = props.match.params.lng;
+		}
+
+		const isPreview = props.location.pathname.endsWith('/preview');
+
 		this.state = {
 			loading: true,
 			error: false,
-			languages: [],
-			locate: "",
-			pluginsInfo: [],
-			routs: [],
-			languagesString: ""
+			metaGoogleSiteVerification: null,
+			locate: defaultLocate,
+			isPreview,
+			reduxStore: null
 		};
 	}
 
-	onError = () => {
+	loadData = async (language, isPreview) => {
+		const promiseGetSettings = isPreview ? getPreviewGeneralSettings : getGeneralSettings;
+
 		this.setState({
-			error: true,
-			loading: false
+			loading: true
 		});
-	};
+
+		promiseGetSettings(language)
+			.then(({ data: res }) => {
+
+				try {
+					const reduxStore = getStoreByGeneralSettings(res);
+
+					this.setState({
+						loading: false,
+						error: false,
+						reduxStore,
+						metaGoogleSiteVerification: res.metaGoogleSiteVerification.metaGoogleSiteVerification || ""
+					});
+				}
+				catch (error) {
+					console.error(error);
+					this.setState({
+						error: true,
+						loading: false
+					});
+				}
+
+			})
+			.catch(error => {
+				console.error(error);
+				this.setState({
+					error: true,
+					loading: false
+				});
+			})
+	}
+
 
 	componentDidMount = async () => {
-		var languages = [];
+		this.loadData(this.state.locate, this.state.isPreview)
+	}
 
-		Promise.all([getLanguages(), getPluginsInfo()]).then(resonses => {
-
-			if (resonses[0].data.length) resonses[0].data.map(lang => languages.push({ value: lang.cutback.toString(), label: lang.title.toString() }));
-
-			var pluginsInfo = resonses[1].data.map(plugin => { if (plugin.hasOwnProperty('activate')) { return plugin; } else { return Object.assign(plugin, { activate: true }) } });
-			
-			var languagesString = languages.map(e => e.value).join('|');
-			var routs = createPluginRoutes(pluginsInfo, languagesString);
-
-			this.setState({ languages: languages, pluginsInfo: pluginsInfo, routs: routs, languagesString: languagesString, loading: false, error: false });
-		}).catch(() => this.onError());
+	componentDidUpdate = async (prevProps) => {
+		if (this.props.match.params.lng != prevProps.match.params.lng) {
+			this.loadData(this.props.match.params.lng, this.state.isPreview)
+		}
 	}
 
 	render() {
-		const { loading, languages, pluginsInfo, error, languagesString, routs } = this.state;
+		const {
+			loading,
+			error,
+			metaGoogleSiteVerification,
+			reduxStore
+		} = this.state;
 
-		const hasData = !(loading || error);
-		const errorMessage = error ? <ServerError /> : null;
-		const spinner = loading ? <LinearProgress /> : null;
-
-		const content = hasData ? <Routs languagesOnSite={languages} pluginsInfo={pluginsInfo} languagesString={languagesString} routs={routs} /> : null;
-
-
+		if (metaGoogleSiteVerification) {
+			let div = document.createElement('div');
+			div.innerHTML = metaGoogleSiteVerification.trim();
+			let head = document.querySelector("head");
+			if (!head.querySelector(`meta[name="${div.firstChild.getAttribute('name')}"]`))
+				head.append(div.firstChild);
+		}
 		return (
-			<BrowserRouter>
-				<Route path={"/:lng(" + languagesString + ")?"} >
-					<div className="mx-auto d-flex flex-column" id="root-children-container">
-						{content}
-						{errorMessage}
-						{spinner}
-					</div>
-				</Route>
-			</BrowserRouter>
+			<div className="mx-auto d-flex flex-column" id="root-children-container">
+				{loading && <LinearProgress />}
+				<Suspense fallback={<LinearProgress />}>
+					{error && <ServerError />}
+					{!(loading || error) && <Routs reduxStore={reduxStore} />}
+				</Suspense>
+			</div>
 		);
 	}
 }
 
-render(<Root />, document.getElementById('root'));
+render(
+	<BrowserRouter>
+		<Route path={"/:lng([a-z]{2})?"} >
+			{withRouter(Root)}
+		</Route>
+	</BrowserRouter>,
+	document.getElementById('root'));

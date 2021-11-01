@@ -5,8 +5,9 @@ import FileCopyIcon from '@material-ui/icons/FileCopy';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { getFileExtensionByName, getIconClassByExtension } from '../../helpers/file-helpers.js'
+import EditIcon from '@material-ui/icons/Edit';
 
-const FileView = ({ file, onClickDeleteFile, onShowFileName, imageInsteadOfIcon = true }) => {
+const FileView = ({ file, onClickDeleteFile, onShowFileName, imageInsteadOfIcon = true, enableEdit = false, onEdit }) => {
   const translate = useTranslate();
 
   const copySelectedDocument = (e) => {
@@ -17,11 +18,12 @@ const FileView = ({ file, onClickDeleteFile, onShowFileName, imageInsteadOfIcon 
     document.execCommand('copy');
     document.body.removeChild(dummy);
   };
-
+  const handleEdit=()=>{
+    onEdit(file)
+  }
   const onCheckboxChange = () => {
     onShowFileName(file.id);
   };
-
   const onClickDelete = () => {
     onClickDeleteFile(file.id);
   };
@@ -58,6 +60,18 @@ const FileView = ({ file, onClickDeleteFile, onShowFileName, imageInsteadOfIcon 
               />
             </OverlayTrigger>
           )}
+          {enableEdit &&
+            <OverlayTrigger overlay={<Tooltip>{translate('edit')}</Tooltip>}>
+              <button
+                className="btn p-0 mr-1"
+                style={{ color: '#009a66' }}
+                type="button"
+                value={file.id}
+                onClick={handleEdit}
+              >
+                <EditIcon fontSize="small" />
+              </button>
+            </OverlayTrigger>}
           <OverlayTrigger overlay={<Tooltip>{translate('copyUrl')}</Tooltip>}>
             <button
               className="btn p-0 mr-1"
@@ -69,6 +83,7 @@ const FileView = ({ file, onClickDeleteFile, onShowFileName, imageInsteadOfIcon 
               <FileCopyIcon fontSize="small" />
             </button>
           </OverlayTrigger>
+
           <OverlayTrigger
             overlay={<Tooltip>{translate('delete')}</Tooltip>}
           >

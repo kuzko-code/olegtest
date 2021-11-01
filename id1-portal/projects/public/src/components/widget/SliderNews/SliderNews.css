@@ -1,0 +1,260 @@
+.slider-news,
+.slider-news .big-slider,
+.slider-news .big-slider .slider-item {
+    max-height: 60vh;
+    min-height: 250px;
+}
+
+.slider-news .small-slider,
+.slider-news .small-slider .slider-item {
+    max-height: 30vh;
+    min-height: 125px;
+}
+
+@media (min-width: 768px) {
+    .first-of-two-slides {
+        padding-right: 2px !important;
+    }
+
+    .second-of-two-slides {
+        padding-left: 2px !important;
+    }
+}
+
+
+
+/* 
+body.lowvision[style*="font-size: 200%"] .SliderItem.textInSlider {
+    font-size: calc(25.8vh / 8.5);
+}
+
+body.lowvision[style*="font-size: 200%"] .bigSlider.textInSlider {
+    font-size: calc(52vh / 18.5);
+}
+
+body.lowvision[style*="font-size: 150%"] .SliderItem.textInSlider {
+    font-size: calc(25.8vh / 10);
+}
+
+body.lowvision[style*="font-size: 150%"] .bigSlider.textInSlider {
+    font-size: calc(52vh / 23.5);
+}
+
+body.lowvision[style*="font-size: 120%"] .SliderItem.textInSlider {
+    font-size: calc(25.8vh / 13);
+}
+
+body.lowvision[style*="font-size: 120%"] .bigSlider.textInSlider {
+    font-size: calc(52vh / 26.5);
+}
+
+body.lowvision[style*="font-size: 100%"] .SliderItem.textInSlider {
+    font-size: calc(25.8vh / 14.5);
+}
+
+body.lowvision[style*="font-size: 100%"] .bigSlider.textInSlider {
+    font-size: calc(52vh / 29.5);
+}
+
+body.lowvision[style*="font-size: 80%"] .SliderItem.textInSlider {
+    font-size: calc(25.8vh / 15.5);
+}
+
+body.lowvision[style*="font-size: 80%"] .bigSlider.textInSlider {
+    font-size: calc(52vh / 31);
+}
+
+body.lowvision[style*="font-size: 65%"] .SliderItem.textInSlider {
+    font-size: calc(25.8vh / 17);
+}
+
+body.lowvision[style*="font-size: 65%"] .bigSlider.textInSlider {
+    font-size: calc(52vh / 33);
+}
+
+body.lowvision[style*="font-size: 55%"] .SliderItem.textInSlider {
+    font-size: calc(25.8vh / 18);
+}
+
+body.lowvision[style*="font-size: 55%"] .bigSlider.textInSlider {
+    font-size: calc(52vh / 34);
+}
+
+
+@media (max-width: 1199px) {
+
+    body.lowvision[style*="font-size: 200%"] .SliderItem.textInSlider {
+        font-size: calc(23.2vh / 8.5);
+    }
+
+    body.lowvision[style*="font-size: 200%"] .bigSlider.textInSlider {
+        font-size: calc(47vh / 15.5);
+    }
+
+    body.lowvision[style*="font-size: 150%"] .SliderItem.textInSlider {
+        font-size: calc(23.2vh / 9);
+    }
+
+    body.lowvision[style*="font-size: 150%"] .bigSlider.textInSlider {
+        font-size: calc(47vh / 17.5);
+    }
+
+    body.lowvision[style*="font-size: 120%"] .SliderItem.textInSlider {
+        font-size: calc(23.2vh / 9.5);
+    }
+
+    body.lowvision[style*="font-size: 120%"] .bigSlider.textInSlider {
+        font-size: calc(47vh / 19);
+    }
+
+    body.lowvision[style*="font-size: 100%"] .SliderItem.textInSlider {
+        font-size: calc(23.2vh / 10);
+    }
+
+    body.lowvision[style*="font-size: 100%"] .bigSlider.textInSlider {
+        font-size: calc(47vh / 20.5);
+    }
+
+    body.lowvision[style*="font-size: 80%"] .SliderItem.textInSlider {
+        font-size: calc(23.2vh / 10.5);
+    }
+
+    body.lowvision[style*="font-size: 80%"] .bigSlider.textInSlider {
+        font-size: calc(47vh / 22.5);
+    }
+
+    body.lowvision[style*="font-size: 65%"] .SliderItem.textInSlider {
+        font-size: calc(23.2vh / 11.5);
+    }
+
+    body.lowvision[style*="font-size: 65%"] .bigSlider.textInSlider {
+        font-size: calc(47vh / 25.5);
+    }
+
+    body.lowvision[style*="font-size: 55%"] .SliderItem.textInSlider {
+        font-size: calc(23.2vh / 12);
+    }
+
+    body.lowvision[style*="font-size: 55%"] .bigSlider.textInSlider {
+        font-size: calc(47vh / 27.5);
+    }
+}
+
+
+
+@media (max-width: 991px) {
+    body.lowvision[style*="font-size: 200%"] .SliderItem.textInSlider {
+        font-size: calc(20.8vh / 9);
+    }
+
+    body.lowvision[style*="font-size: 200%"] .bigSlider.textInSlider {
+        font-size: calc(42vh / 10);
+    }
+
+    body.lowvision[style*="font-size: 150%"] .SliderItem.textInSlider {
+        font-size: calc(20.8vh / 9);
+    }
+
+    body.lowvision[style*="font-size: 150%"] .bigSlider.textInSlider {
+        font-size: calc(42vh / 13);
+    }
+
+    body.lowvision[style*="font-size: 120%"] .SliderItem.textInSlider {
+        font-size: calc(20.8vh / 9);
+    }
+
+    body.lowvision[style*="font-size: 120%"] .bigSlider.textInSlider {
+        font-size: calc(42vh / 15);
+    }
+
+    body.lowvision[style*="font-size: 100%"] .SliderItem.textInSlider {
+        font-size: calc(20.8vh / 9);
+    }
+
+    body.lowvision[style*="font-size: 100%"] .bigSlider.textInSlider {
+        font-size: calc(42vh / 16.5);
+    }
+
+    body.lowvision[style*="font-size: 80%"] .SliderItem.textInSlider {
+        font-size: calc(20.8vh / 10);
+    }
+
+    body.lowvision[style*="font-size: 80%"] .bigSlider.textInSlider {
+        font-size: calc(42vh / 18);
+    }
+
+    body.lowvision[style*="font-size: 65%"] .SliderItem.textInSlider {
+        font-size: calc(20.8vh / 11);
+    }
+
+    body.lowvision[style*="font-size: 65%"] .bigSlider.textInSlider {
+        font-size: calc(42vh / 21);
+    }
+
+    body.lowvision[style*="font-size: 55%"] .SliderItem.textInSlider {
+        font-size: calc(20.8vh / 12);
+    }
+
+    body.lowvision[style*="font-size: 55%"] .bigSlider.textInSlider {
+        font-size: calc(42vh / 22);
+    }
+}
+
+@media (max-height: 500px) {
+    body.lowvision[style*="font-size: 200%"] .SliderItem.textInSlider {
+        font-size: calc(20.8vh / 5.5);
+    }
+
+    body.lowvision[style*="font-size: 200%"] .bigSlider.textInSlider {
+        font-size: calc(42vh / 6);
+    }
+
+    body.lowvision[style*="font-size: 150%"] .SliderItem.textInSlider {
+        font-size: calc(20.8vh / 5.5);
+    }
+
+    body.lowvision[style*="font-size: 150%"] .bigSlider.textInSlider {
+        font-size: calc(42vh / 6.5);
+    }
+
+    body.lowvision[style*="font-size: 120%"] .SliderItem.textInSlider {
+        font-size: calc(20.8vh / 5.5);
+    }
+
+    body.lowvision[style*="font-size: 120%"] .bigSlider.textInSlider {
+        font-size: calc(42vh / 7.5);
+    }
+
+    body.lowvision[style*="font-size: 100%"] .SliderItem.textInSlider {
+        font-size: calc(20.8vh / 5.5);
+    }
+
+    body.lowvision[style*="font-size: 100%"] .bigSlider.textInSlider {
+        font-size: calc(42vh / 8.5);
+    }
+
+    body.lowvision[style*="font-size: 80%"] .SliderItem.textInSlider {
+        font-size: calc(20.8vh / 6);
+    }
+
+    body.lowvision[style*="font-size: 80%"] .bigSlider.textInSlider {
+        font-size: calc(42vh / 9);
+    }
+
+    body.lowvision[style*="font-size: 65%"] .SliderItem.textInSlider {
+        font-size: calc(20.8vh / 7);
+    }
+
+    body.lowvision[style*="font-size: 65%"] .bigSlider.textInSlider {
+        font-size: calc(42vh / 10);
+    }
+
+    body.lowvision[style*="font-size: 55%"] .SliderItem.textInSlider {
+        font-size: calc(20.8vh / 8);
+    }
+
+    body.lowvision[style*="font-size: 55%"] .bigSlider.textInSlider {
+        font-size: calc(42vh / 11);
+    }
+}
+*/

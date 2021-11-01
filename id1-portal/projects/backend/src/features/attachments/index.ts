@@ -20,7 +20,7 @@ import { EXCEPTION_MESSAGES } from "../../constants/index";
 
 class Api {
   public async save_attachment({
-    options: { bodyFile, userId, imgWidth, imgHeight, imgQuality },
+    options: { bodyFile, userId, imgWidth, imgHeight, imgQuality, content },
     client = db,
   }: method_payload<save_attachment_payload>) {
     const dir = CONFIGURATIONS.UPLOAD.LOCAL_PATH as string;
@@ -28,6 +28,7 @@ class Api {
     const fileName = bodyFile.name;
     const mimeType = bodyFile.type;
     const newFileName = `${newUuid}_${fileName}`;
+    const documents = content ? true : false;
     let sql: string;
     let oldPath = bodyFile.path;
     let expansion = path.extname(newFileName);
@@ -69,7 +70,21 @@ class Api {
     }
 
     const sourceUrl = `${CONFIGURATIONS.UPLOAD.ATTACHMENT_URL}/${newFileName}`;
-    sql = format(
+    if (documents) {
+      sql = format(
+        `
+            INSERT INTO documents(id, storage_key, owner_id, mimetype, source_url, content)
+            VALUES (%L, %L, %L, %L, %L, ARRAY[%L]::varchar[]) RETURNING id, storage_key, mimetype, source_url, content;
+        `,
+        newUuid,
+        fileName,
+        userId,
+        mimeType,
+        sourceUrl,
+        content
+      );
+    } else {
+      sql = format(
         `
             INSERT INTO attachments(id, storage_key, owner_id, mimetype, source_url)
             VALUES (%L, %L, %L, %L, %L) RETURNING id, storage_key, mimetype, source_url;
@@ -79,7 +94,8 @@ class Api {
         userId,
         mimeType,
         sourceUrl
-    );
+      );
+    }
     return client.query(sql).then((res: any) => res.rows[0]);
   }
 

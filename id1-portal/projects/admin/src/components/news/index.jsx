@@ -12,6 +12,7 @@ import SectionHeader from '../header/SectionHeader.jsx';
 import * as materialTableSettings from '../../services/materialTableSettings.js'
 
 toast.configure();
+
 export class NewsList extends Component {
     constructor(props) {
         super(props);

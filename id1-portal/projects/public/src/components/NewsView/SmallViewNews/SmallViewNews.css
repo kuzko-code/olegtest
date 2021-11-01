@@ -1,0 +1,100 @@
+:root {
+    --small-view-news-color: var(--theme-color);
+    --small-view-news-secondary-color: #a3a3a3;
+}
+
+.small-view-news {
+    height: 100px;
+}
+
+.small-view-news .small-view-news-thumb {
+    float: left;
+    position: relative;
+    z-index: 1;
+    margin-right: 20px;
+    height: 75px;
+    max-height: 75px;
+    width: 100%;
+    max-width: 100px;
+    overflow: hidden;
+}
+
+.small-view-news .small-view-news-thumb>a {
+    max-width: 100%;
+    height: auto;
+}
+
+.small-view-news .small-view-news-thumb>a .img-container {
+    position: relative;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    padding-top: 75%;
+}
+
+.small-view-news .small-view-news-thumb>a .img-container img {
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 100px;
+}
+
+.small-view-news .small-view-news-content {
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.small-view-news .small-view-news-content .small-view-news-title {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 100%;
+    font-weight: bold;
+    line-height: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.small-view-news .small-view-news-content .small-view-news-title>a {
+    color: var(--small-view-news-color);
+}
+
+.small-view-news .small-view-news-content .small-view-news-date {
+    padding: 3px 0;
+    color: var(--small-view-news-secondary-color);
+    font-size: 16px;
+}
+
+@media (max-width:767px) {
+    .small-view-news {
+        height: auto;
+    }
+
+    .small-view-news .small-view-news-thumb {
+        display: none;
+    }
+
+    .small-view-news .small-view-news-content {
+        padding-bottom: 10px;
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    .small-view-news .small-view-news-content .small-view-news-title {
+        order: 2;
+    }
+
+    .small-view-news .small-view-news-content .small-view-news-date {
+        order: 1;
+    }
+}

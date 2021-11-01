@@ -37,6 +37,10 @@ node_modules/
 jspm_packages/
 .vscode/
 
+# Attachments
+private-attachments/
+files/
+
 # TypeScript v1 declaration files
 typings/
 

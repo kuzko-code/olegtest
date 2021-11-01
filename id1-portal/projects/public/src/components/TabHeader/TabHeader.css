@@ -1,0 +1,31 @@
+.tab-header {
+    display: flex;
+    margin: 0 0 15px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+.tab-header .tab-title-container{
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.tab-header .tab-title-container .tab-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #000;
+    padding: 9px 10px;
+    margin-bottom: 0;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+}
+
+.tab-header .tab-title-container .tab-indicator {
+    background-color: var(--theme-color);
+    width: 100%;
+    bottom: 0;
+    height: 2px;
+    position: absolute;
+}

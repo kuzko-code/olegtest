@@ -1,0 +1,154 @@
+header .nav-gov-sites {
+    cursor: pointer;
+    padding-top: 10px;
+}
+
+li.nav-gov-sites {
+    /* position: fixed; */
+    bottom: 15px;
+    margin-left: 15px;
+}
+
+@media screen and (max-width: 991px) {
+    header .nav-gov-sites {
+        display: none;
+    }
+}
+
+header .gov-title {
+    font-size: 125% !important;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    margin-top: -5px;
+    margin-bottom: 5px;
+}
+
+header .gov-description {
+    color: #fff;
+    font-size: 85%;
+    font-weight: 400;
+}
+
+header .sites-logo {
+    position: relative;
+    background-color: #004bc1;
+    width: 10px;
+    height: 40px;
+}
+
+header .sites-logo::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 10px;
+    height: 20px;
+    background-color: #ffe358;
+}
+
+
+.sites-modal {
+    color: #fff;
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    padding: 10%;
+    margin-top: 10px;
+}
+
+.sites-modal ul {
+    margin: 0 30px 0 0;
+    padding: 0;
+}
+
+.sites-modal ul.mobile {
+    display: none;
+}
+
+.sites-modal li {
+    white-space: nowrap;
+    margin: 15px;
+}
+
+
+
+
+
+.modal-color {
+    background-color: var(--theme-color);
+}
+
+.sites-modal span {
+    top: 5px;
+    right: 15px;
+    font-size: 150%;
+    position: absolute;
+    cursor: pointer;
+}
+
+.site-title {
+    font-size: 100%;
+    color: #fff;
+    font-weight: 600;
+}
+
+.site-title:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.sites-overlay {
+    cursor: default;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 991px) {
+    .sites-modal {
+        position: fixed;
+        flex-direction: column;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        padding: 5%;
+        margin-bottom: 100px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    ul.second-list li:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    .sites-modal ul {
+        display: none;
+    }
+
+    .sites-modal ul.mobile {
+        display: block;
+    }
+
+    .sites-modal ul.mobile li:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    .sites-modal li {
+        white-space: normal;
+        margin-top: 0;
+    }
+
+    .sites-modal span {
+        display: none;
+    }
+}

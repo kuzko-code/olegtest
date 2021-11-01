@@ -1,0 +1,28 @@
+:root {
+    --list-view-news-color: var(--theme-color);
+    --list-view-news-secondary-color: #a3a3a3;
+}
+
+.list-view-news {}
+
+.list-view-news .list-view-news-date {
+    padding: 3px 0;
+    color: var(--small-view-news-secondary-color);
+    font-size: 16px;
+}
+
+.list-view-news .list-view-news-title {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 100%;
+    line-height: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list-view-news .list-view-news-title>a {
+    color: var(--list-view-news-color);
+}

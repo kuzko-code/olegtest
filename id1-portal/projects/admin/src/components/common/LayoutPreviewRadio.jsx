@@ -35,7 +35,7 @@ const LayoutPreviewRadio = ({ name, id, title, selected, src, onSelect, preview 
             }}
           >
             <img
-              style={{ maxWidth: '100%' }}
+              style={{ maxWidth: '100%',maxHeight:'50%' }}
               src={src}
               alt="layout preview thumbnail"
             />
